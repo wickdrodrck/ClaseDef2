@@ -6,7 +6,7 @@ def formprincip(request):
     if request.method == "POST":
         form = FormularioEj2(request.POST)
         if form.is_valid():
-            return render(request, "formulario.html", form.cleaned_data)
+            return render(request, "resul.html", {"form": form.cleaned_data})
     else:
         form = FormularioEj2()
 

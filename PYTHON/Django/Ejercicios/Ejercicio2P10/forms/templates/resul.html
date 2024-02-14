@@ -6,6 +6,19 @@
     <title>Resultado</title>
 </head>
 <body>
-    
+    {% if form %}
+    <p><b>Nombre: </b>{{form.nombre}}</p>
+    <p><b>Correo: </b>{{form.email}}</p>
+    <p><b>Edad: </b>{{form.edad}}</p>
+    <p><b>Genero: </b>{{form.genero}}</p>
+    <p>Aficiones:</p>
+        <ul>
+        {% for x in form.aficiones%}
+            <li>{{x}}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay nada.</p>
+    {% endif %}
 </body>
 </html>

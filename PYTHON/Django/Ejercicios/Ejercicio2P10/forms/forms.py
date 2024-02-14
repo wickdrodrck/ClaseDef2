@@ -1,4 +1,6 @@
 from django import forms
+from django.core.validators import EmailValidator
+
 
 class FormularioEj2(forms.Form):
     nombre = forms.CharField(
@@ -16,6 +18,12 @@ class FormularioEj2(forms.Form):
         label = "Correo",
         max_length=40,
         required=True,
+        validators=[EmailValidator()],
+        error_messages={
+            'required': "Este campo es obligatorio.",
+            'invalid': "Introduzca una dirección de correo electrónico válida."
+        }
+        
     )
     edad = forms.CharField(
         widget=forms.NumberInput(

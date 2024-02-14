@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Kite+One|Cherry+Swash' rel='stylesheet' type='text/css'>
+    <style type='text/css'>
+        body {
+            font-family: 'Kite One', sans-serif;
+        }
+
+        #div1 {
+            width: 250px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 20pt;
+        }
+
+        table {
+            background-color: #EFF2FB;
+            text-align: center;
+            width: 250px;
+            border: 1px solid #D0A9F5;
+            font-family: 'Cherry Swash', cursive;
+        }
+
+        .festivo {
+            background-color: #D0A9F5;
+        }
+
+        td {
+            border: 1px solid #D0A9F5;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function cargar() {
+            var año = prompt("Introduce año: ") || 2022;
+            var table = "<table><tr><td>L</td><td>M</td><td>X</td><td>J</td><td>V</td><td>S</td><td>D</td></tr>";
+            var primerdia = new Date(año, 11, 1).getDay(); // Mes 11 representa diciembre
+			var primerDiaSemana = (primerdia + 6) % 7 + 1;
+            var diafesti = [6, 8, 25];
+            var diaactual = 1;
+            var semanaactual = 1; // Comenzar desde 1 para la primera semana
+
+            while(diaactual < 31){
+    table += "<tr>"
+    for(var i = 1; i <= 7; i++){
+        if((semanaactual == 1 && i < primerDiaSemana) || diaactual > 31){
+            table += "<td></td>"
+        } else {
+            if (diafesti.includes(diaactual)){
+				table += "<td class='festivo'>"+diaactual+"</td>"
+			} else {
+				table += "<td>"+diaactual+"</td>"
+			}
+            diaactual++;
+        }
+    }
+    table += "</tr>";
+    semanaactual++;
+}
+
+            document.getElementById("div1").innerHTML = table;
+        }
+    </script>
+</head>
+
+<body onload="cargar()">
+
+    <h3></h3>
+    <br>
+    <div id="div1"></div>
+</body>
+
+</html>

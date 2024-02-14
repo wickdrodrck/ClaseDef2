@@ -1,0 +1,21 @@
+<html>
+    <head>
+
+    </head>
+    <script>
+        function Ejercicio4(){
+            let fech1 = new Date();
+            let nomb = ""
+            while(nomb == ""){
+                nomb = prompt("Introduce tu nombre: ")
+            }
+            let fech2 = new Date();
+            let tiempopas = (fech2 - fech1) / 1000;
+
+            alert("Han pasado : "+Math.floor(tiempopas)+" segundos.")
+        }
+    </script>
+    <body>
+        <input type="button" value="Dale don dale v2" onclick="Ejercicio4()">
+    </body>
+</html>

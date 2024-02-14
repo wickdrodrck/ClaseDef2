@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	// Al pulsar el botón Mostrar Precio, se llama a la función comprobar (2 ptos)
+
+	// i. Comprobar que al menos uno de los tres posibles tipos de servicios esté chequeado.
+	//    Si no es así, mostrar un error en una alerta y abandonar la función.
+	
+	// ii. Comprobar que hayan seleccionado un día y un horario.
+	//     Si no es así, mostrar un error en una alerta y abandonar la función.
+	
+	// iii. Calcular el precio total a partir del precio del servicio o servicios seleccionados
+	//     (Tinte: Baño de Color 20€, Mechas 30€; Corte: Flequillo y puntas 8€, Cambio Total 35€;
+	//      Peinado: Al aire 5€, Alisado 10€, Otros 10€)
+	
+	// iv. Modificar el contenido del div que tiene "DESCUENTOS Y PRECIOS"
+	//     por el descuento que se le aplicaría según día y horario.
+	//     20% descuento de L a J por la mañana
+	//     15% descuento V por la mañana
+	//     Se muestra el precio total y el precio con descuento si lo hubiera.
+	
+	// v. Al pulsar el botón Mostrar Disponibilidad: (0,5 ptos)
+	//    La fecha se supone que se teclea con formato dd/mm/aaaa (no hace falta validarlo)
+	//    Calcular cuántos días faltan para la visita
+	//    i. mostrar el mensaje: "Le esperamos dentro de X días" siendo X los días que faltan para la
+	//       visita si la fecha está comprendida entre hoy y dentro de 20 días
+	//    ii. si no es así dar un mensaje de error
+	
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>EXAMEN EJERCICIO 1</title>
+    <link rel="stylesheet" href="main.css">
+	<script type="text/javascript">
+		function comprobar() {
+			var checkbox1 = document.getElementById("idtinte");
+			var checkbox2 = document.getElementById("idcorte");
+			var checkbox3 = document.getElementById("idpintar");
+			var day = document.getElementById("dia");
+			var hor = document.getElementById("mt");
+			var prctotal = 0;
+			var prcdesc = 0;
+			var desc = 0;
+
+			if (!checkbox1.checked && !checkbox2.checked && !checkbox3.checked){
+				if(checkbox1.checked){
+				tinte = document.getElementById("seltinte");
+				if(tinte.value == "Baño de color"){
+					prctotal +=20;
+				}else if(tinte.value == "Mechas"){
+					prctotal += 30;
+				}
+			} else if(checkbox2.checked){
+				pelo = document.getElementById("selcorte");
+				if(pelo.value == "Flequillo y puntas"){
+					prctotal +=8;
+				}else if(pelo.value == "Cambio total"){
+					prctotal += 35;
+				}
+			}else if(checkbox3.checked){
+				peinar = document.getElementById("selpeinar");
+				if(peinar.value == "Al aire"){
+					prctotal +=5;
+				}else if(peinar.value == "Alisado"){
+					prctotal += 10;
+				}else if(peinar.value == "Otros"){
+					prctotal += 10;
+				}
+			}
+			} else {
+				alert("Selecciona un campo.")
+				checkbox1.focus();
+				return;
+			}
+			console.log(day.options[day.selectedIndex].text);
+			if(day.options[day.selectedIndex].text === "Seleccione"){
+				alert("Escoge día.");
+				day.focus;
+				return;
+			}
+			if(hor.options[hor.selectedIndex].text === "Seleccione"){
+				alert("Escoge horario.");
+				hor.focus;
+				return;
+			}
+
+			if(day.options[day.selectedIndex].text == "Lunes a Jueves" && hor.options[hor.selectedIndex].text == "Mañana"){
+				desc = 20;
+			}else if(day.options[day.selectedIndex].text == "Viernes" && hor.options[hor.selectedIndex].text == "Mañana"){
+				desc = 15;
+			}
+
+			prcdesc -= (prctotal * desc) / 100;
+
+			document.getElementById("desc").innerHTML = "<p>Precio total: "+prctotal+" y Precio Descuento: "+prcdesc+"</p>"
+			
+		}
+	
+		function mostrarDisponibilidad() {
+			// Implementa la lógica para mostrar la disponibilidad en base a la fecha
+		}
+	</script>
+    <style type="text/css">
+        body {
+            font-family: Georgia, "Times New Roman", Times, serif;
+        }
+
+        #div1 {
+            width: 600px;
+            height: 450px;
+            margin-left: 20px;
+            border: 2px black solid;
+            padding: 20px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            background-color: #EBDEF0;
+        }
+
+        .grises {
+            background-color: #BDBDBD;
+            border-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="form">
+
+        <div id="div1">
+
+            <h1>PELUQUERÍA QUÉ PELOS!</h1>
+            Estos son nuestras ofertas
+            <br><br>
+            <input type="checkbox" id="idtinte">Tinte
+            <select id="seltinte">
+                <option value>Baño de color</option>
+                <option value>Mechas</option>
+            </select>
+            <br><br>
+            <input type="checkbox" id="idcorte">Corte
+            <select id="selcorte">
+                <option value>Flequillo y puntas</option>
+                <option value>Cambio total</option>
+            </select>
+            <br><br>
+            <input type="checkbox" id="idpeinar">Peinar
+            <select id="selpeinar">
+                <option value>Al aire</option>
+                <option value>Alisado</option>
+                <option value>Otros</option>
+            </select>
+            <br><br>
+            Seleccionar día
+            <select id="dia">
+                <option value>Seleccione</option>
+                <option value>Lunes a Jueves</option>
+                <option value>Viernes</option>
+                <option value>Sábado o Domingo</option>
+            </select>
+            Horario
+            <select id="mt">
+                <option value>Seleccione</option>
+                <option value>Mañana</option>
+                <option value>Tarde</option>
+            </select>
+            <hr>
+
+            <input type="button" value="Mostrar Precio" onclick="comprobar()">
+            <div id="desc">
+                <br>
+                DESCUENTOS Y PRECIOS
+            </div>
+            <br>
+            Elija un día para visitarnos (dd/mm/aaaa) <input id="fecha" type="text" size=10>
+            <input type="button" value="Mostrar Disponibilidad" onclick="mostrarDisponibilidad()">
+            <div>
+            </div>
+
+        </div>
+    </form>
+    
+    
+</body>
+
+</html>

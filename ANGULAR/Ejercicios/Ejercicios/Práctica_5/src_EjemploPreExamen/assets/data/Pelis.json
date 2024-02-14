@@ -1,0 +1,21 @@
+[
+    {
+      "id":1,
+      "caratula": "enlace_caratula_pelicula_1.jpg",
+      "titulo": "El Viaje de los Elementos",
+      "año": 2022,
+      "director": "Maestro del Tiempo",
+      "sinopsis": "Una epopeya mágica a través de dimensiones desconocidas.",
+      "puntuacion": 9.5
+    },
+    {
+      "id":2,
+      "caratula": "enlace_caratula_pelicula_2.jpg",
+      "titulo": "Sombras en el Bosque",
+      "año": 2020,
+      "director": "Hechicero de la Oscuridad",
+      "sinopsis": "Intriga y magia se entrelazan en un bosque encantado.",
+      "puntuacion": 8.7
+    }
+  ]
+  

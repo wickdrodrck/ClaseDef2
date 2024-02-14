@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>EXAMEN 1 EVALUACION</title>
+    
+<style type="text/css">
+ body{
+	text-align:center;
+    font-family:'Bookman Old Style',Bookman;
+    color:#29220A;
+     }
+table{
+	background-color: #D5DBDB;
+	border: 2pt solid #fbb;;
+	width:520px;
+	text-align: center;
+	margin: auto;
+	box-shadow: 5px 5px 12px #F5F5DC;
+	font-size: 15px;
+	}
+td{
+	width: 40px;
+	height: 50px;
+}
+img{	
+	width: 40px;
+}
+ #principal{
+ 	width:650px;
+	height:800px;
+	margin-left:auto;
+	margin-right:auto;
+	} 
+  .clasetot{
+	background-color: #fdebd0;
+	}  
+</style>    
+<script>
+var color=Array("#FA5858","#81BEF7","#F3F781","#2EFE2E");
+var fil,col,tabla;
+function iniciar(){
+	var tit = document.getElementById("h1");
+	setInterval(function(){
+		tit.style.color = color[Math.floor(Math.random()*4)]
+	},3000)
+}
+
+function aleatorio (min,max){
+return Math.floor(Math.random()*(max - min +1)+min);
+}
+
+function jugar(){
+	var tabla = "<table>";
+	var jugadoires = document.getElementById("jug").value;
+	var fichoas = document.getElementById("fich").value;
+	document.getElementById("sacar").onclick = sacarFicha;
+	
+	
+	for(var i = 0;i<jugadoires;i++){
+		tabla += "<tr>"
+		for(var f = 0;f<Number(fichoas)+2;f++){
+			if (f == 0){
+				tabla +="<td>Jugador "+i+"</td>"
+			} else if (f == Number(fichoas)+1){
+				tabla +="<td class='clasetot'>"+0+"</td>"
+			} else {
+				tabla +="<td >"+aleatorio(1,32)+"</td>"
+			}
+		}
+		tabla += "</tr>"
+	}
+
+	document.getElementById("fichas").innerHTML = tabla;
+
+}
+function sacarFicha(){
+	players = document.getElementsByTagName("tr");
+	if (players.length == 0){
+		return;
+	}
+
+	acertarplayer = 0;
+	while(acertarplayer < 1){
+		thenumber = aleatorio(1,32);
+		console.log(thenumber)
+		for(var i = 0;i<players.length;i++){
+			acertar = 0;
+			numsi = players[i].getElementsByTagName("td");
+			console.log(numsi.length)
+			for(var f = 0;f<Number(numsi.length)-1;f++){
+				if(Number(numsi[f].innerHTML) == thenumber){
+					acertar +=1;
+					numsi[f].innerHTML = "<img src='acierto.jpeg'>";
+					acertarplayer +=1;
+				}
+			}
+			numsi[numsi.length-1].innerHTML = Number(numsi[numsi.length-1].innerHTML) + acertar;
+		}
+	}
+	for(var i = 0;i<players.length;i++){
+		tds = players[i].getElementsByTagName("td")
+		aciertos = Number(tds[tds.length-1].innerHTML);
+		console.log("Jugador: "+i+" aciertos: "+aciertos)
+		if (aciertos == Number(players[i].getElementsByTagName("td").length)-2){
+			tds[tds.length-1].style.backgroundColor = "green";
+			document.getElementById("sacar").onclick = "";
+			alert("Ganó el Jugador "+i);
+			return;
+		}
+	}
+}
+</script>
+</head>
+<body onload="iniciar()">
+<h1 id="h1"> Pierde tus fichas! </h1>
+Indica número de jugadores 
+<select id="jug" onchange="jugar()">
+<option value="2"  selected>2</option>
+<option value="3" >3</option>
+<option value="4" >4</option>
+</select>
+</br></br>
+Indica número de fichas 
+<select id="fich" onchange="jugar()">
+<option value="5"  selected>5</option>
+<option value="6" >6</option>
+<option value="7" >7</option>
+<option value="8" >8</option>
+</select>
+<br><br>
+<div id="fichas"></div>
+<br>
+<input type="button" id="sacar" value="Sacar ficha" onclick="sacarFicha()">
+<input type="button" value="Reiniciar" onclick="jugar()">
+<br><br> 
+
+</body>
+</html>
+</html>

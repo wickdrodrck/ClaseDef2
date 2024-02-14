@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list >
+    <ion-title>Login</ion-title>
+    <form [formGroup]="registroForm" (ngSubmit)="coinciden()">
+    <ion-item >
+
+        <ion-label >Usuario</ion-label>
+        <ion-input type="text" [required]="true" formControlName="usuario"></ion-input>
+
+    </ion-item>
+    <ion-item >
+
+      <ion-label >Contraseña</ion-label>
+      <ion-input type="password" [required]="true" formControlName="contrasenya"></ion-input>
+
+  </ion-item>
+  <button ion-button (click)="coinciden()">Submit</button>
+  </form>
+  </ion-list>
+
+  <ion-title>
+    {{mensaje}}
+  </ion-title>
+</ion-content>

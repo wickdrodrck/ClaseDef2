@@ -1,0 +1,42 @@
+[
+  {
+    "caratula": "path/to/image1.jpg",
+    "titulo": "La Casa de Papel",
+    "temporadas": 5,
+    "sinopsis": "Un grupo de ladrones profesionales planifica y ejecuta una gran heister en la Banca Nacional de España.",
+    "plataforma": "Netflix",
+    "id": 1
+  },
+  {
+    "caratula": "path/to/image2.jpg",
+    "titulo": "Stranger Things",
+    "temporadas": 4,
+    "sinopsis": "En el verano de 1984, un grupo de amigos adolescentes descubre que algo extraño está sucediendo en su pueblo.",
+    "plataforma": "Netflix",
+    "id": 2
+  },
+  {
+    "caratula": "path/to/image3.jpg",
+    "titulo": "Narcos",
+    "temporadas": 4,
+    "sinopsis": "La historia de la droga más mortífera del mundo y el hombre que la trajo a los Estados Unidos.",
+    "plataforma": "Netflix",
+    "id": 3
+  },
+  {
+    "caratula": "path/to/image4.jpg",
+    "titulo": "Dark",
+    "temporadas": 3,
+    "sinopsis": "En el pueblo de Winden, Alemania, se descubre un misterioso enlace entre la muerte de un niño y un evento que ocurrió 33 años atrás.",
+    "plataforma": "Netflix",
+    "id": 4
+  },
+  {
+    "caratula": "path/to/image5.jpg",
+    "titulo": "Money Heist: Korea - Joint Economic Area",
+    "temporadas": 1,
+    "sinopsis": "Un grupo de ladrones profesionales planea y ejecuta una gran heister en la Zona Económica Especial de Corea del Norte y Corea del Sur.",
+    "plataforma": "Netflix",
+    "id": 5
+  }
+]

@@ -1,0 +1,31 @@
+<html>
+    <head></head>
+    <script>
+        var ventana;
+        var intervalo;
+        var x = 0;
+        var y = 0;
+
+        function moverPantalla(){
+            x+=20;
+            y+=20;
+            ventana.moveTo(x,y);
+        }   
+
+        function Pantalla(){
+            ventana = window.open("Ejercicio2-1.html","","width=300,height=200,top=0,left=0");
+            intervalo = setInterval(moverPantalla(),1000);
+        }
+
+        function Parar(){
+            clearInterval(intervalo);
+            if (ventana) {
+                ventana.close();
+            }
+        }
+    </script>
+    <body>
+        <button onclick="Pantalla()">ME ABURRO</button>
+        <button onclick="Parar()">STOP</button>
+    </body>
+</html>

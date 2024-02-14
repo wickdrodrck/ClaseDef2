@@ -1,0 +1,19 @@
+<div class="Pelicula">
+    <img src="/assets/img/pelicul/{{Pelicul.caratula}}">
+    <ul>
+        <li><b>Titulo : </b>{{Pelicul.titulo}}</li>
+        <li><b> Año : </b>{{Pelicul.anyo}}</li>
+        <li><b>Puntuacion : </b> {{Pelicul.puntuacion}}</li>
+        <li><b>Sinopsis : </b> {{Pelicul.sinopsis}}</li>
+        
+        <li><div class = "actors" *ngFor="let actor of Pelicul.actores;">
+            <ul>
+                <li>
+                    Actor: {{actor}}
+                </li>
+            </ul>
+            </div>
+            
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,26 @@
+<ion-header>
+  <app-header [paginaActual]="Inicio"></app-header>
+</ion-header>
+
+<ion-content>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button routerLink="/buscar">
+      <ion-icon name="filter-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Bienvenido a nuestra librería</ion-card-title>
+      <ion-card-subtitle>Encuentra los mejores libros aquí</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Explora nuestra amplia selección de libros para todos los gustos.</p>
+      <p>Descubre nuevas historias, aprende algo nuevo o sumérgete en un clásico.</p>
+    </ion-card-content>
+  </ion-card>
+  <app-ordenar (arraylibros)="emitirarray($event)"></app-ordenar>
+  <app-libros [libros]="arrlibr"></app-libros>
+
+</ion-content>
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>DOM</title>
+        
+<style type="text/css">
+	body{
+		font-family:"Trebuchet MS", Helvetica, sans-serif;
+	}
+	div{
+		width:600px;
+		margin-right:auto;
+		margin-left:auto;
+		padding:20px;
+		}
+</style>
+<script type="text/javascript">
+	var imgs = document.getElementsByTagName("img");
+	var cont = 0;
+	var pokemonArray = [
+		'pokemon/Bulbasaur.png',
+		'pokemon/Ivysaur.png',
+		'pokemon/Venusaur.png',
+		'pokemon/Charmander.png',
+		'pokemon/Charmeleon.png',
+		'pokemon/Charizard.png',
+		'pokemon/Squirtle.png',
+		'pokemon/Wartortle.png',
+		'pokemon/Blastoise.png'
+		];
+		function adelante(){
+		
+		if (cont == pokemonArray.length){
+				alert("No se puede avanzar más.")
+		}else{
+			imgs[cont].style.borderColor = "black";
+			imgs[cont].style.border = "solid";
+			fotos.innerHTML = "<img src='"+pokemonArray[cont]+"'>"
+			if(cont != 0){
+				imgs[cont-1].style.border = "";
+				imgs[cont-1].style.borderColor = "";
+			}
+			cont++;
+			console.log(cont)
+		}
+		
+		}
+		function atras(){
+			cont--;
+			if (cont == 0){
+				alert("No se puede avanzar hacia atrás más.")
+				
+			}else{
+				imgs[cont].style.borderColor = "";
+				imgs[cont].style.border = "";
+				imgs[cont-1].style.borderColor = "black";
+				imgs[cont-1].style.border = "solid";
+				fotos.innerHTML = "<img src='"+pokemonArray[cont-1]+"'>"
+				
+				
+			}
+			
+		}
+</script>
+</head>
+<body onload="cargar()">
+<div id="miniaturas">
+<img src='pokemon/Bulbasaur.png' height="60" width="60">
+<img src='pokemon/Ivysaur.png' height="60" width="60"> 
+<img src='pokemon/Venusaur.png' height="60" width="60">
+<img src='pokemon/Charmander.png' height="60" width="60"> 
+<img src='pokemon/Charmeleon.png' height="60" width="60"> 
+<img src='pokemon/Charizard.png' height="60" width="60">
+<img src='pokemon/Squirtle.png' height="60" width="60"> 
+<img src='pokemon/Wartortle.png' height="60" width="60"> 
+<img src='pokemon/Blastoise.png' height="60" width="60">
+<br><br>
+
+ 
+
+<input type="button" value="atras" onclick="atras()">
+<input type="button" value="adelante" onclick="adelante()">
+</div>
+<div id="fotos"></div>
+</body>
+</html>

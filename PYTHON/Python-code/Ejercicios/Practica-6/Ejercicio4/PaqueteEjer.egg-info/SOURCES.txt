@@ -1,0 +1,9 @@
+setup.py
+PaqueteEjer/__init__.py
+PaqueteEjer.egg-info/PKG-INFO
+PaqueteEjer.egg-info/SOURCES.txt
+PaqueteEjer.egg-info/dependency_links.txt
+PaqueteEjer.egg-info/top_level.txt
+PaqueteEjer/modulos/ModuloEj1.py
+PaqueteEjer/modulos/ModuloEj2.py
+PaqueteEjer/script/Ejercicio3.py

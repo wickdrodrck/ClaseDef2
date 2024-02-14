@@ -1,0 +1,110 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="UTF-8">
+<title>Ejemplo3 Animaciones Transiciones</title> 
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<style> 
+body {
+  margin:50px;
+  font-family: 'Raleway', sans-serif;
+  font-size:100%;
+  background-color:aliceblue;
+}
+#recuadro0{
+    /*Camabiamos el comportamiento de un elemento sin aplicar transición. Solo al señalar el elemento*/
+  margin:5px;
+  border-radius: 20px;  
+  background-color:#9cf;
+  color:#00879D;
+  width:200px;
+  padding:10px;   
+}
+#recuadro0:hover{
+    font-size:2em;
+    width:300px;
+}
+#recuadro1{
+  position:relative;
+  float:left;
+  margin:5px;
+  border-radius: 20px;  
+  background-color:#00879D;
+  color:white;
+  width:200px;
+  padding:10px;
+  /*nombre_propiedad duración función tiempo_inicio*/
+  transition:width 2s ease 2s; 
+}
+#recuadro1:hover{
+  width:300px;
+}
+
+#recuadro2{
+  position:relative;
+  float:left;
+  margin:5px;
+  border-radius: 20px;  
+  background-color:#9cf;
+  width:200px;
+  padding:10px;
+  /*nombre_propiedad duración función tiempo_inicio*/
+  transition:width 2s linear 2s,
+             background-color 2s linear 2s,
+			 color 2s linear 2s;
+}
+
+#recuadro2:hover{
+  width:300px;
+  background-color:#00879D;
+  color:white;
+}
+/*La transición es una función nde transformación. En la propiedad que se modifica se pone transform*/
+#recuadro3{
+  position:relative;
+  float:left;
+  margin:5px;
+  border-radius: 20px;  
+  background-color:#00879D;
+  color:white;
+  width:200px;
+  padding:10px;
+  transition:width 2s linear 2s,
+	  		 transform 2s ease 2s;
+}
+#recuadro3:hover{
+ /*Se añaden estas transformaciones (Aumentar la escala y girar 180º) al señalar el tercer recuadro*/
+  transform:scale(1,1.5) rotate(180deg);
+  width:300px;
+}
+</style> 
+</head> 
+<body> 
+	<div id="recuadro0">TIME AFTER TIME</div>
+	<div id="recuadro1"> 
+	Lying in my bed I hear the clock tick
+	And think of you
+	Caught up in circles
+	Confusion is nothing new
+	Flashback, warm nights
+	Almost left behind
+	Suitcases of memories
+	Time after
+	</div> 
+	<div id="recuadro2"> 
+	Sometimes you picture me
+	I'm walking too far ahead
+	You're calling to me, I can't hear
+	What you've said
+	Then you say, go slow
+	I fall behind
+	The second hand unwinds
+	</div> 
+	<div id="recuadro3">
+	If you're lost, you can look and you will find me
+	Time after time
+	If you fall, I will catch you, I will be waiting
+	Time after time
+	</div>
+</body> 
+</html> 

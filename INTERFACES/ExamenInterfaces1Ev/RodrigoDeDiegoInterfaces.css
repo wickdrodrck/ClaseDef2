@@ -1,0 +1,236 @@
+@font-face {
+    font-family: Muli;
+    src: url(fonts/Muli.ttf);
+    font-weight: bold;
+
+    font-family: Dancing;
+    src: url(fonts/DancingScript.ttf);
+    font-weight: bold;
+ }
+
+html{
+    box-sizing: border-box;
+}
+
+.PaginaCompleta{
+    margin: 0;
+    padding: 0;
+    font-family: Muli;
+    font-size: 120%;
+    height: 2000px;
+    width: 100%;
+}
+
+.encabezado{
+    position: relative;
+    background-image:url(img/fondo1.jpg);
+    background-size: cover;
+    height: 20%;
+    box-sizing: border-box;
+    color: #38edf0;
+    animation: CargarIMG 10s linear 1s;
+}
+
+@keyframes CargarIMG{
+    from{
+        filter: blur(5px);
+        filter: opacity(0px);
+        filter: sepia(0px);
+    } to{
+        filter: blur(1px);
+        filter: opacity(1px);
+        filter: sepia(1px);
+    }
+}
+
+.menu{
+    width: 50%;
+    height: 20px;
+    padding-top: 50px;
+    margin-left: 20px;
+}
+
+.menu a{
+    width: 25%;
+    height: 100%;
+    padding-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    padding-right: 20px;
+    transition: color 3s ease , font-weight 3s ease, transform 3s ease;
+    
+}
+
+.menu a:hover{
+    color: #38edf0;
+    font-weight: bold;
+    transform: translate(-20px) scale(1.2px);
+}
+
+.Titulo{
+    width: 50%;
+    padding-top: 150px;
+    margin-left: 10%;
+    font-family: Dancing;
+}
+
+.subtitulo{
+    margin-left: 10%;
+    font-size: 20px;
+    font-family: Dancing;
+}
+
+.centro1{
+    position: relative;
+    border-top: 10px outset #38edf0;
+    height: 25%;
+    width: 100%;
+    background-color: #0c6770;
+}
+
+form{
+    position: relative;
+    background-color: #0c6770;
+    color: white;
+    width: 60%;
+    top: 5%;
+    left: 10%;
+    height: 90%;
+    width: 80%;
+}
+
+label{
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+    position: left;
+    margin-right: 20px;
+}
+
+fieldset{
+    margin-top: 10px;
+    padding: 20px;
+    width: 80%;
+    margin-left: 10%;
+    border-color: white;
+    display: inline-block;
+    text-align: right;
+}
+
+input, select, textarea{
+    width: 60%;
+    height: 30px;
+    border-radius: 2px;
+    margin-top: 5px;
+    font-family:Muli;
+}
+
+.submit{
+    background-color: white;
+    font-family: Muli;
+}
+
+.centro2{
+    border-top: 10px outset #38edf0;
+    height: 30%;
+    width:  100%;
+    display:inline-flex;
+    font-size: 50px;
+    box-sizing: border-box;
+}
+
+.marco1{
+    box-sizing: border-box;
+    position: relative;
+    top: 10%;
+    left: 10%;
+    width: 30%;
+    height: 50%;
+    font-family: Dancing;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding-top: 120px;
+    background-color: #0c6770;
+    color: #38edf0;
+    transition: background-image linear 2s, background-size linear 2s, border-radius linear 2s, width linear 2s, box-shadow linear 2s;
+}
+
+.marco1:hover{
+    background-image: url(img/ashtanga.jpg) ;
+    background-size: cover;
+    width: 40%;
+    border-radius: 5px;
+    box-shadow: 10px -10px 2px #38edf0;
+}
+
+.marco2{
+    box-sizing: border-box;
+    position: relative;
+    top: 40%;
+    left: 20%;
+    height: 50%;
+    width: 30%;
+    font-family: Dancing;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding-top: 120px;
+    background-color: #0c6770;
+    color: #38edf0;
+    transition: background-image linear 2s, background-size linear 2s, border-radius linear 2s, width linear 2s, box-shadow linear 2s;
+}
+
+.marco2:hover{
+    background-image: url(img/vinyasha.jpg) ;
+    background-size: cover;
+    width: 40%;
+    border-radius: 5px;
+    box-shadow: 10px -10px 2px #38edf0;
+}
+
+.centro3{
+    box-sizing: border-box;
+    position: relative;
+    background-image: url(img/fondo1.jpg);
+    background-size: cover;
+    height: 20%;
+    width: 100%;
+    
+}
+
+.centro3 video{
+    position: relative;
+    width: 50%;
+    height: 60%;
+    left: 8%;
+    top: 8%;
+}
+
+.Pie{
+    box-sizing: border-box;
+    position: relative;
+    border-top: 10px outset #38edf0;
+    background-color: #0c6770;
+    color: #38edf0;
+    padding: 20px;
+    font-family: Dancing;
+    height: 5%;
+    width: 100%;
+    font-size: 150%;
+    display: flex;
+    align-items: center;
+}
+
+.copyright{
+    position: relative;
+    float: left;
+}
+
+.icons{
+    position: relative;
+    float: right;
+    left: 80%;
+}

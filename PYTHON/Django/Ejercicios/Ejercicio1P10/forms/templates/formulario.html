@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1 P10 - Forms</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for x in formi %}
+            <label name="{{x.label}}">{{x.label}}:</label>
+            {{x}}
+            <br>
+        {% endfor %}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

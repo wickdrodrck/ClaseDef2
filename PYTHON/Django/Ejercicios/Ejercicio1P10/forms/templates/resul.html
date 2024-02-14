@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if aficiones %}
+        <ul>
+        {% for x in aficiones%}
+            <li>{{x}}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>{{nombre}}, eres un sosainas.</p>
+    {% endif %}
+</body>
+</html>

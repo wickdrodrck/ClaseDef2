@@ -1,0 +1,94 @@
+[
+  {
+    "caratula": "Inception.jpeg",
+    "titulo": "Inception",
+    "año": 2010,
+    "director": "Christopher Nolan",
+    "sinopsis": "Dom Cobb, un ladrón hábil, es capaz de entrar en los sueños de las personas y robar sus secretos más íntimos.",
+    "puntuacion": 8.8,
+    "actores": [
+      "Leonardo DiCaprio",
+      "Elliot Page",
+      "Joseph Gordon-Levitt",
+      "Marion Cotillard",
+      "Tom Hardy",
+      "Cillian Murphy",
+      "Michael Caine",
+      "Ken Watanabe"
+    ],
+    "id" : 1
+  },
+  {
+    "caratula": "shawsank.jpg",
+    "titulo": "The Shawshank Redemption",
+    "año": 1994,
+    "director": "Frank Darabont",
+    "sinopsis": "Dos hombres encuentran la redención mientras están encarcelados en la prisión de Shawshank por crímenes que no cometieron.",
+    "puntuacion": 9.3,
+    "actores": [
+      "Tim Robbins",
+      "Morgan Freeman",
+      "Bob Gunton",
+      "William Sadler",
+      "Clancy Brown",
+      "Gil Bellows",
+      "Mark Rolston"
+    ],
+    "id" : 2
+  },
+  {
+    "caratula": "batman.jpg",
+    "titulo": "The Dark Knight",
+    "año": 2008,
+    "director": "Christopher Nolan",
+    "sinopsis": "Batman se enfrenta al crimen organizado en Gotham City con la ayuda de su aliado, el fiscal de distrito Harvey Dent.",
+    "puntuacion": 9.0,
+    "actores": [
+      "Christian Bale",
+      "Heath Ledger",
+      "Aaron Eckhart",
+      "Maggie Gyllenhaal",
+      "Gary Oldman",
+      "Michael Caine",
+      "Anne Hathaway"
+    ],
+    "id" : 3
+  },
+  {
+    "caratula": "pulp.jpg",
+    "titulo": "Pulp Fiction",
+    "año": 1994,
+    "director": "Quentin Tarantino",
+    "sinopsis": "Las vidas de varios personajes se entrelazan en la violenta y caótica Los Ángeles.",
+    "puntuacion": 8.9,
+    "actores": [
+      "John Travolta",
+      "Uma Thurman",
+      "Samuel L. Jackson",
+      "Robert Forster",
+      "Ving Rhames",
+      "Eric Stoltz",
+      "Tim Roth",
+      "Amanda Plummer"
+    ],
+    "id" : 4
+  },
+  {
+    "caratula": "forrest.jpg",
+    "titulo": "Forrest Gump",
+    "año": 1994,
+    "director": "Robert Zemeckis",
+    "sinopsis": "La vida de Forrest Gump, un hombre con un coeficiente intelectual bajo, y su extraordinaria vida a lo largo de varias décadas.",
+    "puntuacion": 8.8,
+    "actores": [
+      "Tom Hanks",
+      "Robin Wright",
+      "Gary Sinise",
+      "Mykelti Williamson",
+      "Sally Field",
+      "Jeff Daniels",
+      "Hanna Hall"
+    ],
+    "id" : 5
+  }
+]

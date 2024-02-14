@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejemplo 5 </title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js" type="text/javascript"> </script>
+<script src="..\jquery-3.7.1.min.js"> </script>
+		<script>
+			$(document).ready( function() {
+			
+				
+				
+				$("h2").hover( function(){
+					$(this).html("ENTRO");
+				}, function() {
+					$(this).html("SALGO");
+				
+				});
+				
+		 		$("#boton").hover( function(){
+					$(this).animate( {opacity: 0.3} , 600);
+				}, function() {
+					$(this).animate( {opacity: 1.0} , 600);
+				
+				});  
+				
+								
+   	
+			} );
+		
+		</script>
+		
+</head>
+<body>
+<br><br>
+<button id="boton" style="position:relative">Ejemplo</button>
+<br><br>
+ 
+<h2> Probando hover </h2>
+ 
+
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+<div class="Msgs">
+    <div class="msg" *ngFor="let m of lmensajes">
+        <ul>
+            Mensaje:
+            <li>{{m.Nombre}}</li>
+            <li>{{m.ID}}</li>
+            <li>Asunto: {{m.Asunto}}</li>
+            <li><a routerLink="/Mensajes/{{m.ID}}" >Detalles </a></li>
+        </ul>
+
+    </div>
+</div>

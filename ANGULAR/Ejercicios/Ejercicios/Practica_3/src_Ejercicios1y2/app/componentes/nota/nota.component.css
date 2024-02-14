@@ -1,0 +1,18 @@
+.hea{
+    background-color: black;
+    text-align: center;
+}
+.hea p{
+    color: white;
+    margin: auto;
+    padding: 5px;
+    
+    
+}
+
+.info{
+    background-color: lightgray;
+    padding: 5px;
+    font-size: 20px;
+    text-align: center;
+}

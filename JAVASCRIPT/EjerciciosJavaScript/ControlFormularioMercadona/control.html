@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CONTROL FORMULARIOS</title>
+        <link rel="stylesheet" href="main.css">
+    
+<style>
+span {
+        background-color: #F5B7B1;
+    }
+
+</style>    
+<script>
+        document.getElementById("idtip").style.backgroundColor="#F5B7B1";
+        document.getElementById("idnom").style.backgroundColor="#F5B7B1";
+
+        
+        let Fecha;
+
+        let precioSeguro;
+        function TipoSeguro(){
+                let precioSeguro = Number(document.getElementById("idtip").value);
+                
+        }
+
+        function Validaciones(){
+                let Nombre = document.getElementById("idnom").value;
+                let Apellido = document.getElementById("idape").value;
+                let Dirección = document.getElementById("iddir").value;
+                let Telefono = document.getElementById("idtel").value;
+                let DNI = document.getElementById("iddni").value;
+                let codigoTrabj = document.getElementById("idcod").value;
+                let fecha = document.getElementById("idmes");
+                if ( Apellido != ""){
+                        alert(Nombre);
+                        if( Nombre != ""){
+                                expr = /.*28[0-9]{3}$/
+                                if( Dirección != ""){
+                                        if (!expr.test(Dirección)){
+                                                alert("Dirección sin codigo postal.");
+                                                document.getElementById("iddir").focus;
+                                        telfexpr = /^(([67]\d{8})|(91\d{6}))$/; 
+                                        if (length(Telefono) > 9){
+                                                let telefs = length(Telefono.value.split("//"));
+                                                if (telefs.forEach(x => {
+                                                        if (!telfexpr.test(x)){
+                                                                return false;
+                                                        } return true;
+                                                })
+                                                ){
+                                                        exprDNI = /^\d{8}[A-Z]$/
+                                                        exprNIE = /^[XYZ]\d{7}[A-Z]$/
+
+                                                        if (exprDNI.test(DNI || exprNIE.test(DNI))){
+                                                                if(codigoTrabj != ""){
+
+                                                                }
+                                                                if (fecha != ""){
+                                                                        mesexpr = /^(0[1-9])|(1[0-2])\/\/\d{4}$/;
+                                                                        if(mesexpr.test(fecha)){
+                                                                                fechapart = fecha.split("//");
+                                                                                mes = fechapart[0];
+                                                                                año = fechapart[1];
+                                                                                Fecha = new Date(mes,año);
+                                                                                if (Fecha < new Date()){
+                                                                                        alert("AAAAA");
+                                                                                        return true; 
+                                                                                }else{
+                                                                                        alert("Fecha adelantada.");
+                                                                                        document.getElementById("idmes").focus;
+                                                                                }
+                                                                        }else{
+                                                                                alert("Fecha Incorrecta.")
+                                                                                document.getElementById("idmes").focus;
+                                                                        }
+                                                                }
+                                                        }else{
+                                                                alert("DNI/NIE Con formato incorrecto.")
+                                                                document.getElementById("iddni").focus;
+                                                        }
+                                                }else{
+                                                        alert("Uno o varios telefonos incorrectos.")
+                                                        document.getElementById("idtel").focus;
+                                                }
+                                        }
+                                }
+                                }
+                        }else{
+                                alert("Nombre vacío.");
+                                document.getElementById("idnom").focus;
+                        }
+                }else{
+                        alert("Apellido vacío.");
+                        document.getElementById("idape").focus;
+                }
+                return false;
+        }
+
+        function CalculoPoliz(){
+                Poliz=0;
+                numadults = 1;
+                adults = 0;
+                niñs = 0;
+                if (Validaciones() == true){
+                        
+                        let SeguroValor = Number(document.getElementsByName("seguro").value);
+                        Poliz += SeguroValor;
+                        if (document.getElementById("idpar").checked){
+                                Poliz += SeguroValor;
+                                numadults += 1;
+                                adults = Poliz
+                                
+                        }
+                        if (document.getElementById("idhij") != "Ninguno"){
+                                if(document.getElementById("idhij" == "Uno")){
+                                        Poliz += SeguroValor/2;
+                                }else{
+                                        Poliz += (SeguroValor/2)*2;
+                                }
+                        }
+                        let sexenioporc = (((new Date()).getFullYear() - Fecha.getFullYear()) / 6) * 5;
+                        Poliz-= (Poliz * sexenioporc)/100
+                        document.getElementById("calculos").hidden = false;
+                        
+                }
+                
+        }
+</script>
+</head>
+<body>
+
+<h1> Plan Familiar de Seguros de Salud <a href="https://www.mercadona.es" > <img src="mercadona.jpg" height="30%" width="30%" ></a></h1>
+<form name="miformulario">
+<div id="div1">
+Mercadona ofrece a sus trabajadores un seguro familiar de amplia cobertura. Rellena tus datos y recibirás más información:
+    
+<br><br>
+Apellidos: <input type="text" id="idape" size=30 placeholder="">   
+Nombre: <input type="text" id="idnom" size=20 placeholder="">
+<br><br> Dirección: <input type="text" placeholder='Incluye tu código postal' id="iddir" size=40>
+<br><br> Teléfono: <input type="text" placeholder='Indica hasta 2 teléfonos separados por //' id="idtel" size=40 > 
+<br><br> DNI/NIE: <input type="text" size=20 id="iddni" placeholder="">
+Código empleado: <input type="text" id="idcod" size=20 >
+<br><br>Mes/Año entrada en la empresa: <input type="text" size=12 id="idmes" placeholder='MM/YYYY'>
+<br><br> Incluye a su pareja  <input type="checkbox" id="idpar"> Incluye a sus hijos 
+<select id="idhij">
+<option >Ninguno</option>
+<option >Uno</option>
+<option >Dos</option>
+<option >Tres</option>
+<option >Cuatro</option>
+<option >Cinco</option>
+</select>
+<br><br><span id="idtip" onclick="TipoSeguro()">Seleccione un tipo de seguro</span>
+<br>Tipo de seguro 
+<input type="radio" value="50" name="seguro"> BÁSICO (50€) <input type="radio" value="60" name="seguro"> 
+              MAS DENTAL (60€) <input type="radio" value="75" name="seguro"> TODO INCLUIDO (75€)
+  
+<br> <br> <input type="button" value="Calcular Póliza"  onclick="CalculoPoliz()">
+
+</div>
+<div id="calculos" hidden>
+<p>Tipo de seguro : </p>
+<br> Tipo de seguro: {{tipoSegur}} 
+<br> Adultos: {{numadults}} -->  {{adults}}
+<br> Niños: {{numniñs}} ---->   {{niñs}}
+<br> Total:   ---->  {{TotalSegurs}}
+<br> Descuento por sexenios: {{numSex}} sexenios  --> {{sexenioporc}}
+<br> Total a pagar: {{Poliz}}
+</div>
+</form> 
+</body>
+</html>

@@ -1,0 +1,31 @@
+.header{
+    border: 1px black solid;
+    border-radius: 10px;
+    color: aquamarine;
+    color: black;
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+    
+
+    font-size: 50%;
+
+    width: 10%;
+}
+
+html{
+    margin-bottom: 10px;
+}
+
+.header a{
+    position: relative;
+    margin-left: 10px;
+    background-color: aqua;
+    padding: 5px;
+    border-radius: 10px;
+    width: 25%;
+    height: 100%;
+    text-align: center;
+    padding: 10px;
+}

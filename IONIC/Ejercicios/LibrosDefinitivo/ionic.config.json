@@ -1,0 +1,7 @@
+{
+  "name": "LibrosDefinitivo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

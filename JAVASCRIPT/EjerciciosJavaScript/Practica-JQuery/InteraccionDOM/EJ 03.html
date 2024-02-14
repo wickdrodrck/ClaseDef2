@@ -1,0 +1,53 @@
+<html>
+<head>
+
+<link rel="StyleSheet" href="estilos3.css" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script></script>
+
+</head>
+<script>
+    $(document).ready(function(){
+        $("input").hover(
+            function(){
+                $(this).addClass("input_text_encima");
+            }, function(){
+                $(this).removeClass("input_text_encima");
+        });
+        $("input").focus(
+            function(){
+                $(this).addClass("input_text_dentro");
+            }).blur(function(){
+                $(this).removeClass("input_text_dentro");
+        });
+        $("#formulario").submit(
+            function(){
+                console.log($("#password").val().length)
+                if($("#password").val().length < 6){
+                    event.preventDefault();
+                    $("#password").addClass("input_text_error");
+                }
+            }
+        )
+    });
+</script>
+<body>
+<div id="caja" class="myform">
+<form id="formulario" >
+<h1>Formulario De Registro</h1>
+<p>Prueba de addclass y removeclass</p>
+
+<label>Nombre<span class="peque">Teclea nombre</span></label>
+<input type="text" name="nombre" id="nombre" class="campo"/>
+
+<label>Email<span class="peque">Teclea email</span></label>
+<input type="text" name="email" id="email" class="campo" />
+
+<label>Password<span class="peque">Min. size 6 chars</span></label>
+<input type="password" name="password" id="password" class="campo" />
+
+<button type="submit">Registrar</button>
+</form>
+</div>
+</body>
+</html>

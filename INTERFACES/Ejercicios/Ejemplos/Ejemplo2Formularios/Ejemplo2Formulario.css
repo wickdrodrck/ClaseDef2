@@ -1,0 +1,56 @@
+@font-face {
+   font-family: mifuente;
+   src: url(JuraLight.ttf);
+   font-weight: bold;
+}
+body {
+	background:#d2ccec;
+	color: #5B3A5B;
+	font-family:mifuente;
+	font-size: 16px;
+}
+#formulario {
+	margin:auto;
+	background:#d2ccec;
+	padding: 30px;
+	width: 600px;
+	border:groove 10px #AF71AF;
+	border-radius: 5px;
+}
+#formulario fieldset {
+	margin: 15px 0px;
+}
+#formulario legend {
+	font-size:20px;
+	text-align: center;
+} 
+#formulario label{
+	position: relative;
+	float: left;
+	width: 250px;
+	height:30px;
+	font-size:20px;	
+	margin-bottom: 10px;
+}
+#formulario input{
+	height:30px;
+	font-size:16px;
+	background: white;
+	border:solid 1px #5B3A5B;
+	border-radius: 5px;
+	position: relative;
+	float: left;
+	width: 250px;
+	margin-bottom: 10px;
+}
+input:required {
+	outline: 1px solid #5B3A5B;
+}
+button {
+	border-radius: 5px;
+	font-size:16px;
+	width:200px;
+	height:40px;
+	color: #5B3A5B;
+	font-family: mifuente;
+}

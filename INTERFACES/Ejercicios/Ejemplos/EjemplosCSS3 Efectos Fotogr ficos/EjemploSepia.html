@@ -1,0 +1,71 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Efectos fotográficos con CSS3</title>
+	<style>
+    * {
+        margin:0px;
+        padding:0px;
+		box-sizing: border-box;
+    }
+	body{
+		background-color: #000;
+		margin: auto;
+		width: 80%;
+		height: auto;		
+	}
+	#izq {
+		position:relative;
+		float:left;
+        width:50%;
+        top:20px;
+        left:10px;
+	}
+	#der {
+	   position:relative;
+	   float:left;
+       width:50%;
+       top:20px;
+       left:20px;
+	}
+	h3 {
+		font-family: Trebuchet MS, verdana, sans-serif;
+		font-size:20px;
+		color: #fff;
+		text-shadow: 0px 0px 30px #ffffff;	
+	}
+	.resplandorblanco{	
+		box-shadow: 0px 0px 30px #ffffff;	
+		padding: 20px;
+		border: 1px solid #fff;
+		width: 80%;
+		height: 40%;
+	}
+	#sinefecto {
+		height:100%;
+		width:100%;	
+		filter:opacity(0.8);
+	}
+	#efectosepia {
+		height:100%;
+		width:100%;	
+		filter: sepia(0.8) blur(1px); /* Sepia y desenfoque */		
+	}
+	</style>
+</head>
+<body>
+	<div id="izq">
+		<h3>IMAGEN ORIGINAL</h3>
+		<div class="resplandorblanco">
+			<img src="Room.jpg" id="sinefecto">
+		</div>
+	</div>
+	<div id="der">
+		<h3>EFECTO SEPIA</h3>
+		<div class="resplandorblanco">
+			<img src="Room.jpg" id="efectosepia">
+		</div>
+	</div>	
+</body>
+</html>

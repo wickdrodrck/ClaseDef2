@@ -1,0 +1,20 @@
+<ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" size-lg="3" *ngFor="let anime of pokemons">
+        <ion-card>
+          <ion-img [src]="anime.images.jpg.image_url"></ion-img>
+          <ion-card-header>
+            <ion-card-subtitle>{{ anime.type }}</ion-card-subtitle>
+            <ion-card-title>{{ anime.title }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Episodes: {{ anime.episodes }}</p>
+            <p>Status: {{ anime.status }}</p>
+            <p>Score: {{ anime.score }}</p>
+            <a href={{anime.url}}>Link a MyAnimeList</a>
+            <p>Synopsis: {{ anime.synopsis | slice: 0:100 }}...</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>

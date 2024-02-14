@@ -1,0 +1,89 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>Ejemplo2 Animaciones Transiciones</title> 
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<style> 
+body {
+  background-color:aliceblue;
+  margin:50px;
+  font-family: 'Raleway', sans-serif;
+  font-size:100%;
+  text-align: justify;
+}
+
+/*Cambiamos el comportamiento de un elemento sin aplicar transición. Solo al señalar el elemento*/
+#recuadro0{
+  margin:5px;
+  border-radius: 20px;  
+  background-color:#9cf;
+  color:#00879D;
+  width:200px;
+  padding:10px;   
+}
+#recuadro0:hover{
+  font-size:2em;
+  width:300px;
+}
+	
+/*Cambiamos el comportamiento de un elemento aplicando una transición que modifica una propiedad. Al señalar el elemento aumenta el ancho. Lo hace de forma gradual durante 3 segundos*/
+#recuadro1{
+  margin:5px;
+  border-radius: 20px;  
+  background-color:#00879D;
+  color:white;
+  width:200px;
+  padding:10px;
+  /*nombre_propiedad duración*/
+  transition:width 3s; 
+}
+#recuadro1:hover{
+  width:300px;
+  color:#9cf;
+}
+	
+/*Cambiamos el comportamiento de un elemento aplicando una transición que modifica varias propiedades. Al señalar el elemento aumenta el ancho y cambian el color de fondo y del texto. Lo hace de forma gradual durante 3 segundos*/
+#recuadro2{
+  margin:5px;
+  border-radius: 20px;  
+  background-color:#9cf;
+  color:#00879D;
+  width:200px;
+  padding:10px;
+  /*nombre_propiedad duración*/
+  transition:width 2s,
+             background-color 2s,
+			       color 2s;
+  /*También se puede poner all 2s
+  transition: all 2s;*/
+}
+#recuadro2:hover{
+  width:300px;
+  background-color:#00879D;
+  color:white;
+}
+</style> 
+</head> 
+<body> 
+	<div id="recuadro0">TIME AFTER TIME</div>
+	<div id="recuadro1"> 
+	Lying in my bed I hear the clock tick
+	And think of you
+	Caught up in circles
+	Confusion is nothing new
+	Flashback, warm nights
+	Almost left behind
+	Suitcases of memories
+	Time after
+	</div> 
+	<div id="recuadro2"> 
+	Sometimes you picture me
+	I'm walking too far ahead
+	You're calling to me, I can't hear
+	What you've said
+	Then you say, go slow
+	I fall behind
+	The second hand unwinds
+	</div> 
+</body> 
+</html> 

@@ -1,0 +1,11 @@
+<div class="Lista">
+    <ul class="list-group" *ngFor="let m of Nombres">
+        <li class="list-group-item" (click)="limpiarUno(m)">
+            {{m}}
+        </li>
+        </ul>
+        <div class="botones">
+            <input type="button" value="Añadir" routerLink="Añadir">
+            <button (click)="limpiar()">Limpiar</button>
+        </div>            
+</div>

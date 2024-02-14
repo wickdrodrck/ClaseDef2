@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Cruceros Qu� te hundes! </title>
+<style type="text/css">
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 2em 2em 4em;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family:Impact, Charcoal, sans-serif;
+    color: #222;
+ 
+}
+
+</style>
+<script>
+function calcularprecio(){
+	var preciotot = 0;
+
+	preciotot += Number(document.getElementById("destin").value);
+	preciotot += Number(document.getElementById("tempor").value);
+	for (x of document.getElementsByName("extra")){
+		if (x.checked){
+			preciotot += Number(x.value);
+		}
+	}
+
+	document.getElementById("salid").value = preciotot;
+
+
+}
+
+function reservar(){
+
+}
+</script>
+</head>
+<body bgcolor = "#81BEF7" >
+
+<div align="center">
+<h1> CRUCEROS �QU� TE HUNDES! </h1>  
+<img src="barco-hundido.jpg" width="300" height="210">
+
+<form name="miformulario">
+
+Seleccione un destino 
+<select id = "destin">
+	<option value="870"> Esencias del Mediterraneo </option>
+	<option value="930"> Islas Griegas </option>
+	<option value="1250"> Capitales B�lticas </option>
+	<option value="1550"> Fiordos Noruegos </option>
+</select>
+<p>
+Temporada 
+<select id="tempor">
+	<option value="0"> Baja </option>
+	<option value="150"> Media </option>
+	<option value="300"> Alta </option>
+</select>
+<p> EXTRAS </p>
+ <input type="checkbox" name="extra" value="150"> Camarote Individual
+ <input type="checkbox" name="extra" value="200"> Camarote Superlujo
+ <input type="checkbox" name="extra"value="90"> Bebida Todo Incluido
+<br><br> 
+<p> PRECIO TOTAL 
+ <input type="text" id="salid" size = "10" readonly>
+ </p>
+ <input type="button" value="CALCULAR" onclick="calcularprecio()">
+ <input type ="button" value="RESERVAR" onclick=""> 
+ <p>
+
+
+</form>
+</body>
+</html>

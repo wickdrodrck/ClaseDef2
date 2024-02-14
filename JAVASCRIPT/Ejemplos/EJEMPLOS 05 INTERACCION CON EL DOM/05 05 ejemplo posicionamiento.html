@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejemplo Posicionamiento</title>
+<style>
+div {
+    height: 100px;
+    width: 400px;
+    padding: 40px;
+    margin: 5px;
+    border: 1px solid blue;
+    background-color: lightblue;
+}
+</style>
+	<script src="..\jquery-3.7.1.min.js"> </script>
+<script>
+$(document).ready(function(){
+  $("#b1").click(function(){
+  	x = $("#p1").position(); 
+ 	y = $("#p1").offset(); 
+	texto='Del primer parrafo: position '+x.top+' '+x.left+' offset '+y.top+' '+y.left;
+   
+ 	x = $("#div1").position();
+ 	y = $("#div1").offset(); 
+     texto+='<br>Del div: position '+x.top+' '+x.left+' offset '+y.top+' '+
+ 	y.left+' offset está teniendo en cuenta el margin de 5' ;
+  	x = $("#p2").position();
+	y = $("#p2").offset(); 
+   texto+='<br>Del parrafo dentro del div: position '+x.top+' '+x.left+' offset '+y.top+' '+y.left ;
+	x = $("#b1").position();
+	y = $("#b1").offset();
+    texto+='<br>Del boton: position '+x.top+' '+x.left+' offset '+y.top+' '+y.left;  
+	   $("#div2").html(texto);
+	 });
+ });
+</script>
+</head>
+<body>
+<p id="p1"> Primer parrafo en el body</p>
+<div id="div1">
+ <p id="p2">Parrafo dentro del div con estilo<br>
+		height:100px;width:400px;padding:40px;margin:5px;border:1px </p>
+</div>
+
+<br><br><br>
+<button id="b1">Posición de los elementos</button>
+<div id="div2">
+</div>
+</body>
+
+
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "MasLibrosDef",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

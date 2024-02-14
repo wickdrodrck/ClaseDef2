@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Pedidos HAMBURGUESAS PEPE'S </title>
+<style type="text/css">
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 2em 2em 4em;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family:Impact, Charcoal, sans-serif;
+    color: #222;
+ 
+}
+
+</style>
+<script>
+function calcular(){
+    var precFinal=0;
+    var radioTama=Number(document.getElementById("tamaño").value);
+ if ( radioTama in [2,3,4,5]){
+    if (document.getElementById("patat").checked == true){
+        precFinal+=Number(document.getElementById("patat").value)
+    }
+    if(document.getElementById("refresc").checked == true){
+        precFinal+=Number(document.getElementById("refresc").value)
+    }
+    var cont = 0
+    for (var i = 0; i<document.getElementsByName("cantidad").length;i++){
+        if (document.getElementsByName("cantidad")[i].checked == true){
+            precFinal+=Number(document.getElementsByName("cantidad")[i].value) * radioTama
+            cont ++
+        }
+    }
+    if (!cont == 0){
+        document.getElementById("salid").value = precFinal.toString()
+        document.getElementById("premio").style = ""
+    } else {
+        alert("No se ha seleccionado Radio button.")
+    }
+ }else{
+    alert("No se seleccionó tamaño.")
+ }
+
+ }
+function verpremio(){
+  if(document.getElementById("prrmio").value in ["28001","28002"]){
+        alert("Enhorabuena tu pedido se queda amitad de precio!")
+        var newPrec = precFinal - (precFinal * 50)/100
+        document.getElementById("salid").value = newPrec.toString()
+        document.bgColor = "yellow"
+        alert(newPrec)
+        
+  }
+  document.getElementById("premio").style = "hidden"
+}
+</script>
+</head>
+<body bgcolor = "#D8BFD8" >
+
+
+<div align="center">
+<h1> HAMBURGUESAS PEPE'S </h1>  
+<img src="hamburguesa.jpg" width=300 height=210>
+<form name="miformulario">
+<br><br>
+
+Elige un tama�o 
+<select id="tamaño">
+	<option > Selecciona </option>
+    <option value = "2"> Peque�a </option>
+	<option value = "3"> Mediana </option>
+	<option value = "4"> Grande </option>
+	<option value = "5"> Gigante!! </option>
+</select>
+<p>
+<p> Comb�nala con Patatas o Refresco </p>
+<input type="checkbox" id="patat" value="1.5"> Patatas
+<input type="checkbox" id="refresc" value="1"> Refresco
+<br><br>
+�Cu�ntas quieres? 
+    <br><br>
+    
+<input type="radio" name="cantidad" value = "1"> 1 <input type="radio" name="cantidad"  value="2"> 2 <input type="radio" name="cantidad" value="3"> 3 <input type="radio" name="cantidad" value="4"> 4 <input type="radio" name="cantidad" value="5"> 5
+ <br><br>
+<input type="button" value="CALCULAR PRECIO" onclick="calcular()" >
+ <br><br>
+ PRECIO TOTAL 
+ <input type="text" size = "10" id="salid">
+ <br><br>
+ <div id="premio" style="display:none">
+ Introduce tu c�digo postal, puedes obtener descuentos!!
+<input type="text" id="prrmio" size = "10" onchange="verpremio()">
+ </div>
+</form>
+</div>
+</body>
+</html>

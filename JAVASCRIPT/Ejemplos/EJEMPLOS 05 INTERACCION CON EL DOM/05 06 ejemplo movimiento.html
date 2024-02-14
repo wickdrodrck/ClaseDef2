@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejemplo 17</title>
+<style>
+			#exterior{
+				border: 1px solid black;
+				position: relative;
+				background-color: pink;
+			}
+			#interior{
+				border: 2px solid black;
+				padding: 10px;
+				margin: 5px;
+				background-color: blue;
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	<script src="..\jquery-3.7.1.min.js"> </script>
+
+	 
+		<script>
+			var interior
+			var tamagnoOriginal;
+			function cambiarPosicion(valor){
+				var posicion= interior.offset();	
+			 	posicion.left = posicion.left +Number(valor.value);											
+				interior.offset(posicion);
+			}
+			function cambiarTamagno(valor){
+				interior.width(tamagnoOriginal + Number(valor.value));
+				interior.height(interior.width());
+			}
+			$(document).ready(function(){	
+				interior = $('#interior');
+				tamagnoOriginal = interior.width();
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div id='exterior'>
+			<div id='interior'>jQuery</div>
+		</div>
+		<br>
+		<label for='posicion'>Avanza Posici&oacute;n: </label>
+		<input id='posicion' type='text'  onchange='cambiarPosicion(this);'/>
+		<label for='tamagno'>Aumenta Tama&ntilde;o: </label>
+		<input id='tamagno' type='text'  onchange='cambiarTamagno(this);'/>
+	</body>
+
+</html>

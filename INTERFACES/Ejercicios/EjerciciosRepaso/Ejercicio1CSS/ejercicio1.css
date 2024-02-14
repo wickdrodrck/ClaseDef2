@@ -1,0 +1,169 @@
+body{
+    background-color: #FFF1FF;
+    padding: 4%;
+}
+
+img{
+    border-radius: 5px;
+}
+
+.Pag{
+    height: 500px;
+    width: 800px;
+
+    box-shadow: 10px 10px 10px rgb(166,71,155);
+}
+
+.Cabecera{
+    background-color: #c070af;
+    text-align: center;
+    height: 100px;
+    width: 800px;
+    position: relative;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+}
+.Cabecera h1{
+    color: #f0d8ed;
+    padding-top: 30px;
+    margin: auto;
+    text-shadow: 5px 4px #a6479b;
+    font-family: 'Sansita Swashed', cursive;
+    
+}
+
+.Cabecera img{
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    margin-top: -35px;
+    animation-name: giralog;
+    animation-duration: 5s;
+    animation-iteration-count: 4;
+    animation-delay: 2s;
+
+}
+@keyframes giralog {
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(360deg);
+    }
+
+    50%{
+        transform: rotate(0deg);
+    }
+
+    75%{
+        transform: rotate(-360deg);
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
+}
+.Banda {
+    background-color: #a6479b;
+    width: 800px;
+    height: 40px;
+    text-align: center;
+    color: #f0d8ed;
+}
+.Banda:hover{
+    animation-name: cambiarcolor;
+    animation-duration: 6s;
+    animation-timing-function: linear;
+}
+@keyframes cambiarcolor {
+    from{
+        
+    }
+    to{
+        background-color: rgba(166, 71, 155, 0.25);
+        color: #a6479b;
+    }
+}
+.Banda p{
+    color: #f0d8ed;
+    margin: auto;
+    padding: 1%;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+.Principal{
+    height: 300px;
+    width: 800px;
+    position: relative;
+    background-color: #f0dBed;
+    display: flex; /* Update the display property to flex */
+    align-items: flex-start; /* Align items at the top of the container */
+    justify-content: flex-start;
+}
+
+.Principal img {
+    margin-left: 100px;
+    height: 200px;
+    width: 300px;
+    margin-top: 50px;
+    
+}
+
+.Principal img:hover{
+    animation-name: rotarPrin;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes rotarPrin {
+    from{
+
+    }to{
+        transform: rotate(15deg);
+        border-width: 20px;
+    }
+}
+
+
+
+.Menu{
+    margin-left: 150px; /* Adjust the margin instead of using absolute positioning */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #a6479b;
+    height: 200px;
+    width: 200px;
+    margin-top: 50px;
+}
+
+.Menu p{
+    color: #f0d8ed;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+
+    background-color: #a6479b;
+    padding: 0.5px;
+}
+.Menu:hover {
+    border-radius: 10px;
+}
+
+.Pie {
+    background-color: rgba(166, 71, 155, 0.5);
+    color: black;
+    height: 60px;
+    width: 800px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+}
+.Pie i{
+    padding-left: 1%;
+}
+

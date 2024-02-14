@@ -1,0 +1,7 @@
+{
+  "name": "ExamenIonicRodrigo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

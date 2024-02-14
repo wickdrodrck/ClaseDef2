@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>jQuery</title>
+		<style>
+			.encontrada{
+			
+				background-color: yellow;
+				font-style: italic;
+			
+				}
+		</style>
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+		<script>
+			document.addEventListener('keydown', function(event) {
+			const keysToBlock = ['F12', 'F5']; // These keys are used for dev tools and refreshing
+			if (keysToBlock.includes(event.key)) {
+				event.preventDefault(); // Block these keys from being pressed
+				alert('You shall not use developer tools or refresh this page!'); // Warn the user that they're blocked
+				}
+			});
+			$(document).ready(function () {
+				$("#palabra").on('keypress',
+					function(){
+						var palabraBuscada = $(this).val()
+						$("p").each(function () {
+							var textoParrafo = $(this).text()
+							if (textoParrafo.includes(palabraBuscada)) {
+								$(this).addClass("encontrada");
+							} else {
+								$(this).removeClass("encontrada");
+							}
+						});
+					}
+				);
+			});
+		</script>
+	</head>
+	<body>
+	<p>El �xito de Jquery se debe a:</p> 
+ <p>Es gratuito. </p> 
+ <p>Es una biblioteca relativamente poco pesada (ocupa poca memoria). </p> 
+ <p>Crea una capa de abstracci�n entre las funcionalidades y los navegadores, el programador no tiene que controlar la compatibilidad. </p> 
+ <p>Aprovecha los conocimientos que pudiera tener el usuario sobre CSS para ofrecerle un m�todo de selecci�n de nodos del DOM muy refinado. </p> 
+ <p>Puede ampliarse a trav�s de plugins. </p> 
+ <p>Su c�digo es compacto, eficiente y muy depurado. </p> 
+<div>
+<input id="palabra" type="text" onkeypress="ver(event)">
+</div>
+	<body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<html>
+	<head>
+
+		
+	    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href='http://fonts.googleapis.com/css?family=Kite+One|Cherry+Swash' rel='stylesheet' type='text/css'>
+		<style type='text/css'>
+		
+		body{
+			font-family: 'Kite One', sans-serif;
+		}
+		
+		#div1 {
+			width:250px;
+			margin:auto;
+		}
+		
+		h1{
+			text-align:center;
+			font-size:20pt;
+		}
+		
+		table{
+			background-color: #EFF2FB;
+			text-align:center;
+			border: 1px solid #D0A9F5;
+			font-family: 'Cherry Swash', cursive;
+		}
+		
+		td{
+			border: 1px solid #D0A9F5;
+			width:25px;
+		}
+
+		</style>
+
+
+<script type="text/javascript">
+	// RODRIGO DE DIEGO VILLENA
+	let array = new Array();
+	function mostrar(){
+   		codigo="<table><tr>";
+   		for (i=0;i<array.length;i++){
+			codigo+="<td>"+array[i]+"</td>";
+			}
+   		codigo+="</tr></table>"
+   		document.getElementById("div1").innerHTML=codigo;
+	}
+
+	mostrar();
+
+	function add(){
+		array.unshift(prompt("Añade Elemento: "));
+		mostrar();
+	}
+
+	function addbhnd(){
+		array.push(prompt("Añade último elemento: "));
+		mostrar();
+	}
+
+	function primerelemento(){
+		array.shift();
+		mostrar();
+	}
+
+	function buscarelemento(){
+		busc = prompt("¿Que elemento buscas?: ");
+		alert("La posición del elemento se encuentra en: "+array.indexOf(busc));
+	}
+
+	function ultimoelemento(){
+		array.pop();
+		mostrar();
+	}
+
+	function ordenarcreciente(){
+		array.sort();
+		mostrar();
+	}
+
+	function ordenardecreciente(){
+		array.reverse();
+		mostrar();
+	}
+</script>
+</head>
+<body>
+
+<h3>PROBANDO ARRAYS UNIDIMENSIONALES</h3>
+<br>
+<input type="button" value="Añadir por delante" onclick="add()">
+<input type="button" value="Añadir por detrás" onclick="addbhnd()">
+<input type="button" value="Buscar un elemento" onclick="buscarelemento()">
+<input type="button" value="Borrar primer elemento" onclick="primerelemento()">
+<input type="button" value="Borrar último elemento" onclick="ultimoelemento()">
+<input type="button" value="Ordenar creciente" onclick="ordenarcreciente()">
+<input type="button" value="Ordenar decreciente" onclick="ordenardecreciente()">
+<br><br><br>
+<div id="div1">
+
+</div>
+</body>
+</html>

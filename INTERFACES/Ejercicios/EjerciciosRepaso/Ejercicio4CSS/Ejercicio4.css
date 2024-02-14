@@ -1,0 +1,57 @@
+
+.Pagina{
+    background-image: url("Imagenes/fondo2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 100%;
+}
+
+.albumes {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+}
+
+
+
+.albumes div{
+    text-align: center;
+    background-color: white;
+    height: 34%;
+    width: 20%;
+    padding-bottom: 2%;
+    border: 1px solid;
+    margin: 20px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
+    
+}
+
+.albumes div:hover{
+    animation-name: Selecc;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+}
+
+@keyframes Selecc {
+    from{
+
+    }
+    to{
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.75);
+        transform: scale(1.25);
+        transform: rotate(-2deg);
+    }
+}
+
+.albumes div img {
+    margin-top: 10%;
+    width: 78%;
+}
+
+.albumes div p {
+    margin-top: 10%;
+    font-size: 20px;
+}

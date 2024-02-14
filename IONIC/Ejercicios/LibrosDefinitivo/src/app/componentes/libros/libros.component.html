@@ -1,0 +1,25 @@
+<ion-content>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col size="12" size-md="6" size-lg="4" *ngFor="let l of libros">
+        <img src="/assets/img/{{l.portada}}" alt="{{l.title}}" width="100" height="100" style="float: left; margin-right: 10px;">
+        <ion-card (click)="redireccion(l.id)">
+          <ion-card-header>
+            {{l.title}}
+          </ion-card-header>
+          <ion-card-content>
+            Autor: {{l.author}}
+            <br>
+            Genero: {{l.genre}}
+            <br>
+            Sinopsis: {{l.sinopsis}}
+            <br>
+            Editorial: {{l.editorial}}
+            <br>
+            Año de Publicación: {{l.year}}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

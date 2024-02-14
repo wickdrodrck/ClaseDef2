@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="main.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<style>
+#container {
+		position:relative;
+		margin:auto;
+		width:800px;
+		}
+#id1 {
+		position:absolute;
+		left:20px;
+		top:50px;
+		}
+#id2 {
+		position:absolute;
+		left:200px;
+		top:50px;
+		}
+#id3 {
+		position:absolute;
+		left:350px;
+		top:50px;
+		}
+</style>
+
+</head>
+<script>
+	$(document).ready( function() {
+		$("li").click(function(){
+			$("li").css("color","black");
+			$(this).css("color","blue");
+			$(this).next().css("color","green");
+			$(this).prev().css("color","green");
+			$("div").css("border","")
+			$(this).closest("div").css("border","1px solid gray")
+			
+		})
+	});
+</script>
+<body>
+<div id="#container">
+
+<div id="id1"> 
+<ul>
+<li> Naranjas </li>
+<li> Limones </li>
+<li> Peras </li>
+<li> Manzanas </li>
+<li> Plátanos </li>
+</ul>
+</div>
+<div id="id2">
+<ul>
+<li> Queso </li>
+<li> Salchichón </li>
+<li> Jamón </li>
+</ul>
+</div>
+<div id="id3">
+<ul>
+<li> Tomate </li>
+<li> Cebolla </li>
+<li> Lechuga </li>
+<li> Pepino </li>
+<li> Ajo </li>
+</ul>
+</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<style type='text/css'>
+body{
+	font-family: 'Kite One', sans-serif;
+}
+ 
+div {
+	border-style: solid;
+    border-width: 2px;
+	width:500px;
+	margin:auto;
+	padding: 20px;
+}
+.uno {
+		line-height: 30px;  
+	}
+
+p{
+	padding: 10px;
+}
+</style>
+ <script>
+ function validar(){
+	if(document.getElementById("nom").value != ""){
+		if(document.getElementById("ape").value != ""){
+			if(document.getElementById("telf").value != ""){
+				if ((document.getElementById("telf").value).length == 9 && !isNaN(document.getElementById("telf").value)){
+					document.getElementById("salid").value = "GRACIAS POR INSERTAR TUS DATOS"
+				}else{
+					alert("Número de telefono con menos digitos que 9 // Telefono no es un númerico")
+					document.getElementById("telf").value.focus
+		}
+			} else {
+				alert("Campo telefono está vacío.")
+				document.getElementById("telf").value.focus
+			}
+		} else {
+			alert("Campo Apellidos está vacío.")
+			document.getElementById("ape").focus;
+		}
+		
+	}else {
+		alert("Campo nombre está vacío.")
+		document.getElementById("nom").focus;
+	}
+ }
+ </script>
+
+</head>
+<body>
+<form>
+<input type="reset" value="BORRAR">
+<div>
+<br> 
+ <p>Introduce nombre: <input type="text" class="uno" id="nom"></p><br>
+ <p>Introduce apellidos: <input type="text" class="uno" id="ape"></p><br>
+ <p>Introduce telefono: <input type="text" id="telf" size="10"></p>
+ <input type="button" class="uno"  value="Validar" onclick="validar()"><br>
+ <br>
+ </div>
+ <div id="resul"><input type="text" id="salid" readonly></div>
+
+
+ 
+</form>
+</body></html>

@@ -1,0 +1,21 @@
+[
+    {
+      "ID": 1,
+      "Nombre": "Viajero",
+      "Asunto": "¡Saludos desde el paraíso!",
+      "Texto": "¡Hola desde un destino tropical! ¿Cómo estás disfrutando tus vacaciones?"
+    },
+    {
+      "ID": 2,
+      "Nombre": "Explorador Curioso",
+      "Asunto": "Descubrimientos en el extranjero",
+      "Texto": "Explorando nuevas tierras y culturas. ¿Alguna vez te has preguntado sobre la magia de los lugares desconocidos?"
+    },
+    {
+      "ID": 3,
+      "Nombre": "Aventurero Descansado",
+      "Asunto": "Relajación y aventura",
+      "Texto": "Descansando y buscando emociones en cada rincón. ¿Te gustaría unirte a la aventura?"
+    }
+  ]
+  

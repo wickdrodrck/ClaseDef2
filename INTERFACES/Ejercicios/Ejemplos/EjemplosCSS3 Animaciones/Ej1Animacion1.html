@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>EJEMPLO1 ANIMACIONES CSS3</title>
+<style> 
+    body {
+        background-color: papayawhip;
+    }
+    #animacion_horizontal, #animacion_vertical {
+    /*Propiedades que tienen en común animación horizontal y vertical*
+      Duración, número de repeticiones, dirección y momento en que comienza la animación*/
+        animation-duration:5s; /*Duración 5 sgs*/
+        animation-iteration-count:4; /*Se repite 4 veces*/
+        animation-direction:alternate; /*Dirección inversa*/
+        animation-delay:2s; /*Comienza 2 sg después de cargar la página*/
+        width: 200px;
+        background-color: #EB4E32;
+        color: #fff;
+        font-family: Tahoma, Geneva, sans-serif;
+        font-size:36px;
+        position: relative; 
+        padding: 2px;
+    }
+    
+    /*Las animaciones horizontales y verticales se diferencian en el nombre del fotograma clave*/
+    #animacion_horizontal {
+        animation-name: movimiento-horizontal;	
+    }
+    @keyframes movimiento-horizontal {
+       from {
+          left: 0px;
+       }
+
+       to {
+          left: 200px;
+       }
+    }
+    #animacion_vertical {
+        animation-name: movimiento-vertical;
+    }
+    @keyframes movimiento-vertical {
+       from {
+          top: 0px;
+       }
+
+       to {
+          top: 200px;
+       }
+    }
+</style>
+</head>
+<body>
+	<div id="animacion_horizontal">Texto horizontal</div>
+	<div id="animacion_vertical">Texto vertical</div>
+</body>
+</html>

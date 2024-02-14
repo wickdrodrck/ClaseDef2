@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>EJEMPLO2 ANIMACIONES CSS3</title>
+<style> 
+    body {
+        background-color: papayawhip;
+    }
+	/*1) Definir la animación con sus atributos*/
+    #animacion_porcentaje {
+		animation-name: movimiento-porcentaje;
+		animation-duration:5s;
+		animation-iteration-count:10;
+		animation-timing-function:ease; 
+        animation-direction:alternate;	
+		width: 200px;
+		background-color: #EB4E32;
+		color: #fff;
+		font-family: Tahoma, Geneva, sans-serif;
+		font-size:36px;
+		position: relative; 
+		padding: 2px;
+    }
+	
+	/*2) Definir la animación con fotograma clave*/
+    @keyframes movimiento-porcentaje {
+        0% {
+			top:0px;
+			left: 100px;
+        }
+        25% {
+			top:0px;
+			left: 300px;
+        }
+        50% {
+			top:200px;
+			left: 300px;
+        }
+        75% {
+			top:200px;
+			left: 100px;
+        }
+        100% {
+			top:0%;
+			left: 100px;
+        }		
+    }
+</style>
+</head>
+<body>
+	<div id="animacion_porcentaje">Texto en movimiento</div>
+</body>
+</html>

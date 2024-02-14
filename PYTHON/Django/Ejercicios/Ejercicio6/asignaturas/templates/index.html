@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio6</title>
+</head>
+<style>
+    body{
+        background-color: beige;
+        color: black;
+    }
+    div{
+        text-align: center;
+        text-decoration: none;   
+    }
+</style>
+<body>
+    <div>
+        {% for x in asignaturas %}
+        <ul>
+            <li>Nombre: {{x.nombre}}</li>
+            <li>Profesor: {{x.profesor}}</li>
+            <li>Nº Horas: {{x.nhoras}}</li>
+        </ul>
+        <hr>
+        {% endfor %}
+    </div>
+</body>
+</html>

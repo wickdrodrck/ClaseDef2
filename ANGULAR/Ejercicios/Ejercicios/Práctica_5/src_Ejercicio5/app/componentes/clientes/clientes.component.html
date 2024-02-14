@@ -1,0 +1,26 @@
+<div class="Clientes">
+    <div class="Formu">
+        <h1>Alta Clientes</h1>
+        Nombre: <input [(ngModel)]="nombre"><br>
+        CIF: <input [(ngModel)]="cif"><br>
+        Dirección: <input [(ngModel)]="direccion"><br>
+        Grupo: <select [(ngModel)]="grupo">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select><br>
+        <button (click)="AnadirCliente()">Guardar</button>
+    </div>
+    <div class="lista">
+        <h1>Lista Clientes</h1>
+        <table>
+            <tr *ngFor="let c of ArrayClientes">
+                <td>{{c.nombre}}</td>
+                <td>{{c.cif}}</td>
+                <td>{{c.direccion}}</td>
+                <td>{{c.grupo}}/td>
+            </tr>
+        </table>
+    </div>
+</div>

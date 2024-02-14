@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Cruceros Qu� te hundes! </title>
+<style type="text/css">
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 2em 2em 4em;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family:Impact, Charcoal, sans-serif;
+    color: #222;
+ 
+}
+
+</style>
+<script>
+function validar(){
+    retelf = /^\d{9}$/
+    recorr = /^[a-z0-9A-Z]@[a-z0-9A-Z].[com|es]$/
+    renombape = /^/
+}
+</script>
+</head>
+<body bgcolor = "#81BEF7" >
+ 
+<div>
+<h1> CRUCEROS �QU� TE HUNDES! </h1>  
+<img src="barco-hundido.jpg" width="300" height="210">
+
+<form name="miformulario">
+ 
+Datos personales  
+<p>
+Nombre <input type="text" id="nom" size = "25">  
+Apellidos <input type="text" id="ape"  size = "25"> <br><br>
+Tel�fono <input type="text" id="telf" size = "15"> 
+Correo <input type="text"  id="corr" size = "40">  <br><br> 
+
+ </p>
+ <input type="button" value="RESERVAR" onclick="validar()">
+ 
+</form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<ion-content>
+  <form [formGroup]="registrolarg" (ngSubmit)="sondatos()">
+
+      <ion-item>
+        <ion-label >Usuario</ion-label>
+        <ion-input type="text" formControlName="usuario"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label >E-mail</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label >DOB</ion-label>
+        <ion-input type="date" formControlName="fecha"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label >Mobile</ion-label>
+        <ion-input type="number" formControlName="telefono"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Gender</ion-label>
+        <ion-radio-group formControlName="gender">
+          <ion-item>
+            <ion-label>Male</ion-label>
+            <ion-radio value="Male"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Female</ion-label>
+            <ion-radio value="Female"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-item>
+
+    <ion-button type="submit" expand="full">Submit</ion-button>
+  </form>
+</ion-content>

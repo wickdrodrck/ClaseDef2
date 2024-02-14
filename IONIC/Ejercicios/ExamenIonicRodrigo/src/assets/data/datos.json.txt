@@ -1,0 +1,16 @@
+[
+{
+nombre:"ABC news",
+descripcion:"Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com.",
+url:"https://abcnews.com,
+categoria:"general",
+pais: "us"
+},
+{
+nombre:"ANSA.it",
+descripcion:"Agenzia ANSA: ultime notizie, foto, video e approfondimenti su: cronaca, politica, economia, regioni, mondo, sport, calcio, cultura e tecnologia.",
+url:http://www.ansa.it",
+categoria:"general",
+pais: "it"
+}
+]

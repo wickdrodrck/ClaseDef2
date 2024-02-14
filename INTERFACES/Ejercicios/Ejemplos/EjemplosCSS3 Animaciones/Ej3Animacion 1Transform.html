@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="UTF-8">
+<title>Ejemplo3 Animaciones con Transform</title> 
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<style> 
+body {
+  background-color:aliceblue;
+  margin:50px;
+  font-family: 'Raleway', sans-serif;
+  font-size:50%;
+}
+h1 {
+  animation-name: animacionh1;
+  animation-duration: 5s;
+  color:cadetblue;
+}
+
+@keyframes animacionh1 {
+  from {
+    margin-left: 100%;
+    width: 300%;
+	color:burlywood;
+	transform: rotate(90deg); 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+	color:cadetblue;
+  }
+}
+</style>
+</head> 
+<body> 
+	<h1>Un primer ejemplo para ver la animación con fotogramas de un elemento</h1>
+</body> 
+</html> 

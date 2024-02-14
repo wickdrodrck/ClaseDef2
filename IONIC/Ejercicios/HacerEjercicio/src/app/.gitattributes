@@ -1,0 +1,2 @@
+IONIC/Ejercicios/*.zip filter=lfs diff=lfs merge=lfs -text
+../../../HacerEjercicio.zip filter=lfs diff=lfs merge=lfs -text

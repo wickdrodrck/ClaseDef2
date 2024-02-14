@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>Ejemplo0 Animaciones</title> 
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<style> 
+body {
+	background-color:aliceblue;
+	margin:50px;
+	font-family: 'Raleway', sans-serif;
+	font-size:100%;
+}
+/*1) Definir la animación con sus atributos*/
+h1 {
+	animation-name: animacionh1; /*Nombre animación*/
+	animation-duration: 10s; /*Duración animación*/
+	color:cadetblue;
+}
+
+/*2) Definir la animación con fotograma clave*/
+@keyframes animacionh1 {
+	from {
+		margin-left: 100%;
+		width: 300%;
+		color:burlywood;
+	}
+	to {
+		margin-left: 0%;
+		width: 100%;
+		color: cadetblue;
+	}
+}
+</style>
+</head> 
+<body>
+	<h1>Un primer ejemplo para ver la animación con fotogramas de un elemento</h1>
+	<h2>No tiene animación</h2>
+</body> 
+</html> 

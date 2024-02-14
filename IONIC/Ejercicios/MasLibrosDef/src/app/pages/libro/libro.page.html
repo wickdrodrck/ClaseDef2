@@ -1,0 +1,7 @@
+<ion-header>
+  <app-header [paginaActual]="tituloLibro"></app-header>
+</ion-header>
+
+<ion-content>
+  <app-libro2 (tituloActualizado)="actualizarTituloLibro($event)" ></app-libro2>
+</ion-content>

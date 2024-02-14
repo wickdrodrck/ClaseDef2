@@ -1,0 +1,10 @@
+<ion-header >
+  <app-header></app-header>
+</ion-header>
+
+<ion-content >
+  <app-buscar (arraybusc)="ordenacion($event)"></app-buscar>
+  <ion-grid *ngFor="let elem of arraing">
+    <p>{{elem.nombre}}</p>
+  </ion-grid>
+</ion-content>

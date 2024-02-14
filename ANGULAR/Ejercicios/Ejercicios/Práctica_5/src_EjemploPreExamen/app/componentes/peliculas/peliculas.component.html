@@ -1,0 +1,9 @@
+<div class="Peliculs" *ngFor="let peli of Pelis;">
+    <div>{{peli.titulo}}</div>
+    <a routerLink="/Peliculas/{{peli.id}}">Pincha aquí</a>
+</div>
+
+<div>
+    <input [(ngModel)]="elimin">
+    <button (click)="eliminarserie()">Elimin</button>
+</div>

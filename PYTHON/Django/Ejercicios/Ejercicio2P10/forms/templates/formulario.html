@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Formulario</title>
+</head>
+<style>
+    .centralita{
+
+    }
+</style>
+<body>
+    <form method="post" class="centralita">
+        {% csrf_token %}
+        {% for field in form %}
+        <div>
+            <label for="{{ field.id_for_label }}">{{ field.label }}:</label><br>
+            {{ field }}
+        </div>
+        <br>
+        {% endfor %}
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>

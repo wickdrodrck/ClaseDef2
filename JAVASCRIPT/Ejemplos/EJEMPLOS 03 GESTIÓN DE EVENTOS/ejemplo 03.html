@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+		<title>Ejemplo 03</title>
+		<style type="text/css">
+		table { 
+			background-color:white;
+			text-align:center;
+			 
+			width:150px;
+			height:150px;
+		}
+		td{
+			border: 2px solid #D0A9F5;
+		}
+		</style>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"> </script>
+		<script src="..\jquery-3.7.1.min.js"> </script>
+		<script>
+			$(document).ready( function() {
+			 	$('p').on('click',function(){alert('Hacemos Click en un párrafo que existe');});
+				
+				$('div').click(function(){
+									$(this).html("<p>Ahora Soy un nuevo párrafo</p>");
+									})
+				
+				for (i=0;i<3;i++)
+					$("tr").eq(i).on('click','td',{value: 52},function(event){
+							$(this).css('background','red').html(event.data.value);
+						});
+	
+			} );
+		
+		</script>
+		
+	</head>
+	<body>
+	
+	<p> Soy un párrafo </p>
+	<p> Yo también </p>
+	<div>
+	Yo un div
+	</div>
+	<table>
+	<tr>
+		<td>1</td><td>2</td><td>3</td><td>4</td>
+	</tr>
+	<tr>
+		<td>5</td><td>6</td><td>7</td><td>8</td>
+	</tr>
+	<tr>
+		<td>9</td><td>10</td><td>11</td><td>12</td>
+	</tr>
+	</table>
+ 
+	</body>
+
+</html>

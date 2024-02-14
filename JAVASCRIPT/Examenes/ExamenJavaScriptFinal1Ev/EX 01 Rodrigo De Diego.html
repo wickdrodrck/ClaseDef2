@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>EXAMEN EJERCICIO 1</title>
+
+<link rel="stylesheet" type="text/css" href="stylepoli.css">    
+<style type="text/css">
+ body{
+   font-family:"Trebuchet MS", Helvetica, sans-serif;
+   color:#210B61;
+   font-size:10pt;
+ }
+div{
+	width:600px;
+	margin-left:auto;
+	margin-right:auto;
+	}
+#central, #abajo{
+	text-align:center;
+}
+#pos1 {
+	position:relative;
+	background-color:#F5DA81;
+}
+table{
+	margin-right:auto;
+	margin-left:auto;
+	text-align:center;
+	}
+td{ 	 
+	font-size:12px;
+	width:200px;
+	height:50px;
+	text-align:center;
+	border:1px solid black;
+	}
+		
+ </style>
+<script>
+	
+
+	var tarifaprec = 0;
+	function marcar(e, valor){
+		tarifa = e;
+		tarifaprec = valor;
+		console.log(tarifaprec)
+		todas = document.getElementsByTagName("td");
+		for(var i = 0;i<todas.length;i++){
+			todas[i].style.backgroundColor = "";
+		}
+		tarifa.style.backgroundColor = "green";
+	}
+
+	function calculoPrecio(){
+		var numerosa = document.getElementsByName("numeros");
+		var numerosaval;
+		var leganes = document.getElementsByName("legane");
+		var leganeval;
+		var day = document.getElementById("dd");
+		var mes = document.getElementById("mm");
+		var anyo = document.getElementById("aaaa");
+		var Fechanac = new Date(anyo.value, mes.value-1, day.value);
+		var edad = Math.floor((new Date() - Fechanac) / (1000*60*60*24*365));
+		var prectotal = 0;
+		console.log(Fechanac);
+
+		for (i=0;i<numerosa.length;i++){
+			if (numerosa[i].checked)
+				numerosaval=Number(numerosa[i].value);
+		}
+
+		for (i=0;i<leganes.length;i++){
+			if (leganes[i].checked)
+				leganeval=Number(leganes[i].value);
+		}
+
+		if ( (day.value < 1 || day.value > 31) || day.value == ""){
+			alert("Error día invalido,");
+			day.focus();
+			return;
+		}else if ((mes.value < 1 || mes.value > 12) || mes.value == ""){
+			alert("Error mes invalido,");
+			mes.focus();
+			return;
+		} else if (anyo.value < 1900 || anyo.value == ""){
+			alert("Error año invalido,");
+			anyo.focus();
+			return;
+		}
+
+		if (Fechanac>Date.now()){
+			alert("Fecha mayor que la actual.");
+			day.focus();
+			return;
+		}
+
+		if(edad < 14 || edad > 80){
+			alert("Error edad no comprendida entre 14 y 80 años.");
+			day.focus;
+			return;
+		}
+
+		document.getElementById("edad").value = edad;
+		prectotal += tarifaprec;
+		console.log(numerosaval+" "+leganeval)
+		if(leganeval == 1){
+			prectotal -= (prectotal*50) / 100;
+		} else {
+			if(edad < 18){
+				prectotal -= (prectotal * 20) /100;
+			} else if(edad > 65){
+				prectotal -= (prectotal * 30) /100;
+			}	if(numerosaval == 1){
+				prectotal -= 5;
+			}
+		}
+		document.getElementById("precio").value = prectotal + "€";
+
+		document.getElementById("id33").style = "";
+
+	}
+
+	function cambiar(evento,campo){
+		var este = campo;
+		console.log(evento)
+		if(evento.type == "mouseenter"){
+			este.style.backgroundColor = "#81DAF5";
+			este.style.fontWeight = "bold";
+
+		}else if (evento.type == "mouseleave"){
+			este.style.backgroundColor = "white";
+			este.style.fontWeight = "";
+		}
+	}
+
+	function enviar(){
+		var campo1 = document.getElementById("val1");
+		var campo2 = document.getElementById("val2");
+
+		var exprRegu1 = /^[a-mA-M([0-9){1,}]{6,8}$/
+		var exprRegu2 = /^([a-zA-z].[0-9]){2,}$/
+
+		if(!exprRegu1.test(campo1.value)){
+			campo1.focus();
+			alert("Si eres una maquina.")
+			return;
+		}else if(!exprRegu2.test(campo2.value)){
+			campo2.focus();
+			alert("Si eres una maquina.")
+			return;
+		}
+
+		window.confirma()
+	}
+
+	function confirma(){
+		var conf = prompt("¿Confirma los datos?")
+		if(conf == "si"){
+			var ventana =  window.open("","","width=300,height=200,top=0,left=0");
+			ventana.document.write("<h1>FIN</h1><p>Nos pondremos en contacto</p>")
+			setTimeout(function(){ventana.close()},9000)
+		}else{
+
+		}
+	}
+</script>
+</head>
+<body>
+<h1>POLIDEPORTIVO LEGANES SPORT</h1>
+<div id="central">
+<fieldset id="pos1">
+Calculamos el precio mensual de tu carnet como socio en nuestro polideportivo.
+Indica tu fecha de nacimiento y el uso que harías de él.  
+</fieldset>
+</div>
+<br>
+<div id="abajo">
+<form name="form1">
+<label>Fecha nacimiento</label>
+<input type="text" id="dd" placeholder="dd" style='text-align:center;' size=3> 
+<input type="text" id="mm" placeholder="mm" style='text-align:center;' size=3> 
+<input type="text" id="aaaa" placeholder="aaaa" style='text-align:center;' size=5> 
+ &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp EDAD  <input type="text" id="edad" size=3 readonly>  
+
+<label>Empadronado en Leganés </label>
+<input type="radio" name="legane" value="1">SÍ
+<input type="radio" name="legane" value="0" checked>NO
+<label>Familia numerosa </label>
+<input type="radio" name="numeros" value="1" >SÍ
+<input type="radio" name="numeros" value="0" checked>NO
+<br>
+<label>TARIFAS:Clica la que te interesa</label>
+<table>
+<tr>
+<td id="LV1" value="20" onclick="marcar(this,20)">1 hora semanal de L a V <b>20€</b></td>
+<td id="LV2" value="30" onclick="marcar(this,30)">2 horas semanales de L a V <b>30€</b></td>
+<td id="LV4" value="40" onclick="marcar(this,40)">4 horas semanales de L a V <b>40€</b></td>
+<td id="FN" value="30" onclick="marcar(this,30)">Fines de Semana <b>30€</b></td>
+<td id="TD" value="60" onclick="marcar(this,60)">Entrada libre todos los días <b>60€</b></td>
+</tr>
+</table>
+<hr> 
+<label>Descuentos:</label> 
+Menores de 18 años: 20%
+<br>Mayores de 65 años: 30%
+<br>Familia numerosa: 5€
+<br>Empadronado en Leganés: 50% (este descuento anula los anteriores)
+<br><br> <input type="button" value="CALCULAR PRECIO" onclick="calculoPrecio()">
+ <input type="text" id="precio" size=2 readonly>
+</form>
+</div>
+<div id="id33" style="display:none" >
+<form name="form2">
+<label>Teléfono</label>
+ <input type="text" id="telefono" onmouseenter="cambiar(event,this)" onmouseleave="cambiar(event,this)" size=20>
+<br>No soy una máquina (Teclea un texto de entre 6 y 8 caracteres con al menos 2 números seguidos y el resto
+ letras de la A a la M) 
+<input type="text" id="val1" size=20  onmouseenter="cambiar(event,this)" onmouseleave="cambiar(event,this)">
+<br>Vale, el anterior no me sale, pero no soy una máquina (Teclea una secuencia de letra.número al menos 2 veces L.9L.9 )
+<input type="text" id="val2" size=20 onmouseenter="cambiar(event,this)" onmouseleave="cambiar(event,this)">
+<br> <input type="button" value="ENVIAR DATOS" onclick="enviar()">
+</form> 
+</div>
+</body>
+</html>

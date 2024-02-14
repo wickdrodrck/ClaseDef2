@@ -1,0 +1,28 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{libro.title}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-label>Sinopsis</ion-label>
+      <ion-text>{{libro.sinopsis}}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Género</ion-label>
+      <ion-text>{{libro.genre}}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Editorial</ion-label>
+      <ion-text>{{libro.editorial}}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Año de publicación</ion-label>
+      <ion-text>{{libro.year}}</ion-text>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="vuelta()">
+    <ion-icon name="close-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

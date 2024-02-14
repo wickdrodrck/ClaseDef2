@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>TRANSLADAR</title>
+<style>
+body {
+	background-color:#fd7e7b;
+}
+#reloj {
+	background-image: url(im4.jpg);
+	position: relative;
+	width: 300px;
+    height: 300px;
+	animation:translada 3s alternate infinite;
+}
+@keyframes translada 
+{
+	0% {
+		transform: translate(0px,0px) rotate(0deg);
+	}
+	50% {
+		transform: translate(450px,200px) rotate(180deg);
+	}
+}
+</style>
+</head>
+<body>
+	<div id="reloj"></div>
+</body>
+</html>

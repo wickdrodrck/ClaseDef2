@@ -1,0 +1,56 @@
+<html>
+    <head></head>
+    <script>
+        var ventasentradas = new Array(3);
+        var suma = 0;
+        for(var i = 0;i <ventasentradas.length;i++){
+            ventasentradas[i] = new Array(8);
+        }
+        for(var f = 0; f<ventasentradas.length;f++){
+            suma = 0;
+            for(var g = 0; g<ventasentradas[f].length;g++){
+                if(g == 7){
+                    ventasentradas[f][g] = suma;
+                }else{
+                    ventasentradas[f][g] = Math.floor(Math.random()*100);
+                    suma+=ventasentradas[f][g];
+                    console.log(ventasentradas[f][g]);
+                    console.log(suma);
+                }
+            }
+        }
+
+        function PonerTabla(){
+            var codigo='<table border=1> ';
+            for (i=0;i<3;i++){
+				codigo+='<tr> ';
+                    codigo+='<td> Sala '+(i+1)+'</td>'
+				for (j=0;j<7;j++){
+					codigo+='<td>'+ventasentradas[i][j]+'</td>' ;
+				}
+				codigo+='</tr>';
+			}
+			codigo+='</table>';
+	        document.getElementById("tabla").innerHTML=codigo;
+        }
+
+        function PonerVentasTot(){
+            var codigo='<table border=1> ';
+            for (i=0;i<3;i++){
+				codigo+='<tr> ';
+                    codigo+='<td> Sala '+(i+1)+'</td>'
+				for (j=0;j<8;j++){
+					codigo+='<td>'+ventasentradas[i][j]+'</td>' ;
+				}
+				codigo+='</tr>';
+			}
+			codigo+='</table>';
+	        document.getElementById("tabla").innerHTML=codigo;
+        }
+    </script>
+    <body>
+        <button onclick="PonerTabla()">Cargar tabla</button>
+        <button onclick="PonerVentasTot()">Cargar ventas totales</button>
+        <div id="tabla"></div>
+    </body>
+</html>

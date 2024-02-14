@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/
+xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta charset="UTF-8">
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+</head>
+<script>
+  function descargaXML() {
+  // Obtener la instancia del objeto XMLHttpRequest   
+  peticion_http = new XMLHttpRequest(); // Agregar la declaración "var"
+
+  // Preparar la funcion de respuesta
+  peticion_http.onload = muestraContenido;
+
+  // Realizar peticion HTTP
+  peticion_http.open('GET', 'discos.xml', true);
+  peticion_http.send();
+}
+
+function muestraContenido() {
+  if (peticion_http.readyState == 4) {
+    if (peticion_http.status == 200) {
+      xmlDoc = peticion_http.responseXML;
+
+      // Obtener el cuerpo de la tabla (suponiendo que tienes un "tbody")
+      var cuerpo = document.getElementById("demo").querySelector("tbody");
+      if (!cuerpo) {
+        // Si no existe el "tbody", crearlo
+        cuerpo = document.createElement("tbody");
+        document.getElementById("demo").appendChild(cuerpo);
+      }
+      array01 = [];
+      // Recorrer los nodos y agregar filas a la tabla
+      array01.push(xmlDoc.getElementsByTagName("ARTIST")); 
+      array01.push(xmlDoc.getElementsByTagName("TITLE")); 
+      array01.push(xmlDoc.getElementsByTagName("COMPANY")) ;
+
+      const headers = ["ARTISTA", "TITULO", "COMPAÑIA"];
+      const filatitulo = document.createElement("tr");
+      headers.forEach(header => filatitulo.appendChild(document.createElement("td")).textContent = header);
+      cuerpo.appendChild(filatitulo) // SIMPLIFICACION DE METER LOS TITULOS.
+      array1 = [];
+      for (i = 0; i < array01[0].length; i++) {
+        // Crear una nueva fila
+        var fila = document.createElement("tr");
+
+        // Crear la celda
+        for (f = 0; f < array01[0].length; f++){
+          a = document.createElement("td");
+          a.textContent = array01[f][i].innerHTML;
+          array1.push(a);
+          console.log(a);
+          
+            for (g = 0; g < array01[0].length; g++){
+            fila.appendChild(array1[g]);
+          }
+
+        }
+        
+
+        // Agregar la fila al cuerpo de la tabla
+        cuerpo.appendChild(fila);
+      }
+    } else {
+      alert("ERROR " + peticion_http.status); // Manejo de errores con alert
+    }
+  }
+}
+
+</script>
+<body>
+
+<button type="button" onclick="descargaXML()">MIS DISCOS</button>
+<br><br>
+<table id="demo"></table>
+
+</body>
+</html>

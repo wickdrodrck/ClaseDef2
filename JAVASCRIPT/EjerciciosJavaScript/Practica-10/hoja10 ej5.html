@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DOM</title>
+    <link rel="stylesheet" href="main.css">
+    <script type="text/javascript">
+
+        var lis;
+
+        function conectar() {
+            lis = document.getElementsByTagName("li");
+            var nomb = document.getElementById("usu");
+            var nuevoUsuario = nomb.value;
+
+            if (!usuarioYaExiste(nuevoUsuario)) {
+                document.getElementById("ol1").innerHTML += "<li>" + nuevoUsuario + "</li>";
+            }
+        }
+
+        function desconectar() {
+            var nomb = document.getElementById("usu");
+            var nuevoUsuario = nomb.value;
+
+            if (usuarioYaExiste(nuevoUsuario)) {
+                eliminarUsuario(nuevoUsuario);
+            } else {
+                alert("Error: El usuario no existe en la lista.");
+            }
+        }
+
+        function usuarioYaExiste(usuario) {
+            for (var i = 0; i < lis.length; i++) {
+                if (lis[i].innerText === usuario) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function eliminarUsuario(usuario) {
+            for (var i = 0; i < lis.length; i++) {
+                if (lis[i].innerText === usuario) {
+                    lis[i].remove();
+                    break;
+                }
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <p>REALIZANDO CONEXIONES</p>
+    </div>
+    <form name="miformulario">
+        Usuario <input type="text" id="usu" size="15">
+        Contraseña <input type="text" id="con" size="15">
+        <br><br><br>
+        <input type="button" value="CONECTAR" onclick="conectar()">
+        <input type="button" value="DESCONECTAR" onclick="desconectar()">
+        <br>
+    </form>
+    <ol id="ol1">
+        <li>Pepe</li>
+        <li>Ana</li>
+    </ol>
+</body>
+
+</html>

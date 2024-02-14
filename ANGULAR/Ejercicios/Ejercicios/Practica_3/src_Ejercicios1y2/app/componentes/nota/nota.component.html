@@ -1,0 +1,9 @@
+<div class="hea"><p>EJERCICIO 1 DIRECTIVAS TS</p></div>
+<div class="info"><p>información sobre {{nombre}}</p></div>
+<p>Asignatura: {{asignatura}}</p>
+<p name="Ejercicio 1">Nota : {{mostrarMSG()}}</p>
+<!--Ejercicio 2: -->
+<p *ngIf="nota<5; else suspend">Suspenso</p>
+<ng-template #suspend>
+    Aprobado
+</ng-template>

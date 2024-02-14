@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>ESCALAR</title>
+<style>
+body {
+	background-color:#fd7e7b;
+}
+#reloj {
+	background-image: url(im4.jpg);
+	position: relative;
+	width: 300px;
+    height: 300px;
+	left:200px;
+	top:200px;
+	animation:escala 3s infinite;
+}
+@keyframes escala
+{
+	0% {
+        transform: scale(1,1);
+    }
+	40% {
+        transform: scale(2,0.5);
+    }
+	80% {
+		transform: scale(0.5,2);
+	}
+	100% {
+        transform: scale(1,1);
+    }
+}
+</style>
+</head>
+<body>
+	<div id="reloj"></div>
+</body>
+</html>

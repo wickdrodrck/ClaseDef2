@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Petalos</title>
+    <style type="text/css">
+        p{
+           color: lightpink;
+           font-size: 20px;
+            
+        }
+        body{
+            background-color: blueviolet;
+        }
+        h2{
+            font-size: 30px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>Encuentra a las mejores damas de compañía.</p>
+    <p>Trae a tu madre y te la cambiamos por un descuento.</p>
+    <div> {%if nombre %}
+        <h2>Tienes un MENSAJE!!!!</h2>
+        <p>{{nombre}}: {{msg}}</p>
+        {% else %}
+        <h2> Sin mensajes chaval, que estas mu solo </h2>
+        {% endif %}
+    </div>
+    
+</body>
+</html>

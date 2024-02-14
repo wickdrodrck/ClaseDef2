@@ -1,0 +1,107 @@
+<html>
+    <head>
+
+    </head>
+    <link rel="stylesheet" href="pimpam.css">
+    <script>
+        
+
+        
+        var cont = 0;
+        var arrend;
+        var arrayo;
+        var fallo = 0;
+        var arraya = [];
+
+        function hacerArray2(numx){
+            arrayo = new Array(numx*numx)
+            for (var x = 0; x < arrayo.length;x++){
+                arrayo[x] = x+1
+        }
+        }
+
+        function numeroaleatorio(minimo, maximo){
+            return num = Math.floor(Math.random() * (maximo - minimo + 1) + minimo)
+        }
+
+        function buscarvalor(array,num){
+            for (var x = 0; x < array.length; x++) {
+                for (var y = 0; y < array.length; y++) {
+                    if (array[x][y] == num){
+                        return true;
+                    }
+                    }
+                }
+                return false;
+        }
+
+        function hacerArray(array, max) {
+            for (var x = 0; x < array.length; x++) {
+                for (var y = 0; y < array.length; y++) {
+                    let num = numeroaleatorio(1, max);
+                    while(buscarvalor(array,num)){
+                        num = numeroaleatorio(1, max);
+                    }
+                    array[x][y] = num;
+                    }
+                }
+            }
+        function ponerTabla(){
+            cont = 0;
+            numx = Number(document.getElementById("boton2").value);
+            console.log(numx);
+            arrend = new Array(numx);
+            console.log("leng"+arrend.length)
+            for (var i = 0; i < arrend.length; i++){
+                arrend[i] = new Array(numx);
+            }
+            hacerArray(arrend,(numx*numx));
+            hacerArray2(numx);
+            var codigo='<table id="tabla1" border=1> ';
+            for (i=0;i<arrend.length;i++){
+                                codigo+='<tr> ';
+                                for (j=0;j<arrend.length;j++){
+                                        codigo+='<td onclick="cambiocolor(this)">'+arrend[i][j]+'</td>' ;
+                                }
+                                codigo+='</tr>';
+                        }
+                        codigo+='</table>';
+                document.getElementById("table3x3").innerHTML=codigo;
+        }
+
+        function cambiarRojo(){
+            for(var x = 0;x<arraya.length;x++){
+                arraya[x].style.backgroundColor = "white";
+            }
+        }
+
+        function cambiocolor(celda){
+            numeer = celda.textContent;
+            console.log(numeer+"|"+arrayo[cont])
+            if (arrayo[cont] == numeer){
+                celda.style.backgroundColor = "blue";
+                cambiarRojo();
+                cont+=1;
+            } else {
+                celda.style.backgroundColor = "red";
+                arraya.push(celda);
+                fallo += 1;
+            }
+
+            if (cont == arrayo.length ){
+                document.getElementById("resul").innerHTML = "Los fallos han sido : " + fallo
+            }
+        }
+    </script>
+    <body>
+        <div id="table3x3">
+
+        </div>
+        <select id="boton2" onchange="ponerTabla()">
+        <option value="3" selected>3x3</option>
+        <option value="4">4x4</option>
+        <option value="5">5x5</option>
+        </select>
+        <div id="resul"></div>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+[
+    {
+      "id":1,
+      "caratula": "enlace_caratula_serie_1.jpg",
+      "titulo": "Dimensiones Paralelas",
+      "temporadas": 3,
+      "sinopsis": "Explora mundos infinitos con esta serie cautivadora.",
+      "plataforma": "NexoVision"
+    },
+    {
+      "id":2,
+      "caratula": "enlace_caratula_serie_2.jpg",
+      "titulo": "El Enigma de las Estrellas",
+      "temporadas": 5,
+      "sinopsis": "Misterios cósmicos aguardan en esta épica odisea espacial.",
+      "plataforma": "GalaxyStream"
+    }
+  ]
+  

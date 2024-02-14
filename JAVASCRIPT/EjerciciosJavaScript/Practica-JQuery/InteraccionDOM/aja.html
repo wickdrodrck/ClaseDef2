@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Kitten Myspace</title>
+    <!-- Add CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+        font-family: 'Trebuchet MS', sans-serif;
+        background-color: #e3e3e3;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      nav {
+        background-color: #5c5c5c;
+        padding: 10px;
+        color: white;
+        font-size: 18px;
+      }
+
+      #menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      #menu li {
+        display: inline;
+        margin: 5px;
+      }
+
+      #menu a {
+        color: white;
+        text-decoration: none;
+      }
+
+      h1 {
+        color: #5c5c5c;
+      }
+
+      form {
+        background-color: #f8f8f8;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 10px;
+        text-align: left;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      select,
+      input[type="email"],
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+
+      #gallery {
+        background-color: #ffffff;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      #gallery img {
+        margin: 10px;
+        border-radius: 5px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      #contact {
+        background-color: #f8f8f8;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation menu -->
+    <nav>
+      <ul id="menu">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#gallery">Kitten Gallery</a></li>
+        <li><a href="#contact">Contact Me</a></li>
+      </ul>
+    </nav>
+
+    <!-- Profile section -->
+    <div id="about">
+      <h1>About Me</h1>
+      <form action="" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="age">Age:</label><br>
+        <input type="number" min="0" max="100" id="age" name="age"><br>
+        <label for="location">Location:</label><br>
+        <select id="location" name="location">
+          <option value="">Select a location</option>
+          <option value="USA">USA</option>
+          <option value="Canada">Canada</option>
+          <option value="Mexico">Mexico</option>
+        </select><br>
+        <label for="occupation">Occupation:</label><br>
+        <input type="text" id="occupation" name="occupation"><br>
+        <label for="hobbies">Hobbies:</label><br>
+        <input type="text" id="hobbies" name="hobbies"><br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+    <!-- Gallery section -->
+    <div id="gallery">
+      <h1>Kitten Gallery</h1>
+      <img src="kitten1.gif" alt="Kitten 1" width="200" height="200">
+      <img src="kitten2.gif" alt="Kitten 2" width="200" height="200">
+    </div>
+
+    <!-- Contact section -->
+    <div id="contact">
+      <h1>Contact Me</h1>
+      <form action="" method="post">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        <input type="submit" value="Send Email">
+      </form>
+    </div>
+  </body>
+</html>

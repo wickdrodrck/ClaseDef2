@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+table{
+	background-color: #F7F793;
+	border: 1px solid #75756A;
+	width:300px;
+	text-align: center;
+	margin: auto;
+	box-shadow: 5px 5px 12px #F5F5DC;
+	font-size: 20px;
+	font-family: 'Indie Flower', cursive;
+}
+td{
+	border: 1px solid red;
+	width: 21px;
+}
+
+ </style>
+<script>
+	var juego = new Array(4);
+	for(var h = 0;h <juego.length;h++){
+		juego[h] = new Array(4);
+	}
+
+	for(var h = 0;h<juego.length;h++){
+		for(var j = 0;j<juego.length;j++){
+			juego[h][j] = "**"
+		}
+	}
+
+	var fallos=0;
+	var cuatxcuat = new Array(4);
+	for(var h = 0;h <juego.length;h++){
+		cuatxcuat[h] = new Array(4);
+	}
+
+	for(var h = 0;h<cuatxcuat.length;h++){
+		for(var j = 0;j<cuatxcuat.length;j++){
+			cuatxcuat[h][j] = Math.floor(Math.random()*10);
+		}
+	}
+	
+
+	function buscar(elemento){
+		var encontrado = false;
+		var valor = elemento
+		salirBucle:
+		for(var i = 0;i<cuatxcuat.length;i++){
+			for(var f=0;f<cuatxcuat[i].length;f++){
+				console.log(valor)
+				console.log(cuatxcuat[i][f])
+				if(valor == cuatxcuat[i][f]){
+					juego[i][f] = cuatxcuat[i][f];
+					encontrado = true;
+					break salirBucle;
+				}
+			}
+		}
+		if(!encontrado){
+			fallos +=1;
+			document.getElementById("div2").innerHTML="Tienes "+fallos+" fallos!";
+			if(fallos >= 5){
+				alert("Game Over");
+				for(var x = 0;x<juego.length;x++){
+					for(var y = 0;y<juego[x].length;y++){
+						juego[x][y] = cuatxcuat[x][y];
+					}
+				}
+				cargarTabla();
+			}
+		}
+		cargarTabla();
+	}
+
+	function cargarTabla(){
+		console.log(juego)
+		var codigo='<table border=1> ';
+            for (i=0;i<4;i++){
+				codigo+='<tr> ';
+				for (j=0;j<4;j++){
+					codigo+='<td>'+juego[i][j]+'</td>' ;
+				}
+				codigo+='</tr>';
+			}
+			codigo+='</table>';
+	        document.getElementById("div1").innerHTML=codigo;
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+		cargarTabla();
+	});
+
+
+	if(fallos > 5){
+		alert("Game Over");
+		console.log(juego)
+		var codigo='<table border=1> ';
+            for (i=0;i<4;i++){
+				codigo+='<tr> ';
+				for (j=0;j<4;j++){
+					codigo+='<td>'+cuatxcuat[i][j]+'</td>' ;
+				}
+				codigo+='</tr>';
+			}
+			codigo+='</table>';
+	        document.getElementById("div1").innerHTML=codigo;
+	}
+</script>
+<body>
+ 
+<div>
+ <input type="button" value=1 onclick="buscar(this.value)"> 
+	 <input type="button" value=2 onclick="buscar(this.value)"> 
+	 <input type="button" value=3 onclick="buscar(this.value)"><br> 
+ <input type="button" value=4 onclick="buscar(this.value)"> 
+	 <input type="button" value=5 onclick="buscar(this.value)"> 
+	 <input type="button" value=6 onclick="buscar(this.value)"> <br> 
+ <input type="button" value=7 onclick="buscar(this.value)"> 
+	 <input type="button" value=8 onclick="buscar(this.value)"> 
+	 <input type="button" value=9 onclick="buscar(this.value)"> <br> 
+ <input type="button" value=0 onclick="buscar(this.value)">  
+</div>
+<div id="div1">
+</div>
+<div id="div2">
+</div>
+</body>
+<script type="text/JavaScript">
+
+</script>
+</html>

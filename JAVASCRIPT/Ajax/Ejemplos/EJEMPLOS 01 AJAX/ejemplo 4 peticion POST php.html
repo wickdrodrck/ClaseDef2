@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Untitled Document</title>
+	<style type="text/css">
+			input {
+				font-family: Verdana, Geneva, sans-serif;
+				
+			}
+			.valor {
+				margin-left: 35px;
+			}
+			input {
+				font-family: Verdana, Geneva, sans-serif;
+			}
+			.resultado {
+				background-color: #999;
+				margin-left: 10px;
+			}
+			#form1 p #operar {
+				margin-left: 25px;
+			}
+			div {
+				width: 400px;
+				margin-right: auto;
+				margin-left: auto;
+				font-family: Verdana, Geneva, sans-serif;
+			}
+			#formulario {
+				border: 2px outset #333;
+				padding-left: 25px;
+				margin-top: 50px;
+				font-weight: bold;
+			}
+			#titulo {
+				text-align: center;
+			}
+			body {
+				background-color: #CCC;
+			}
+	</style>
+
+	<script>
+	function calcular() {
+		// Obtener la instancia del objeto XMLHttpRequest		
+				peticion_http = new XMLHttpRequest();	
+		// Preparar la funcion de respuesta
+				peticion_http.onreadystatechange = muestraContenido;
+		// Realizar peticion HTTP
+				peticion_http.open('POST', 'ajaxproceso.php', true);
+				caja1=document.getElementById("valor1").value;
+				caja2=document.getElementById("valor2").value;
+				datos="caja1="+caja1+"&caja2="+caja2;
+				
+				//Ponemos las cabeceras de la solicitud como si fuera un formulario,
+				//necesario si se utiliza POST
+			
+			 	peticion_http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				// Content-type indica el tipo de contenido, formato o codificación de los datos a enviar.
+				// El valor "application/x-www-form-urlencoded" como se codificaran los datos antes de ser enviados, 
+				// en este caso indica que se manipularan datos ASCII simples de hecho si no se especifica este es el default.
+				
+				peticion_http.send(datos);
+
+			function muestraContenido() {
+			if(peticion_http.readyState == 4) {
+				if(peticion_http.status == 200) {
+						document.getElementById("resultado").value=peticion_http.responseText;
+					 
+					}
+				else		
+					document.getElementById("resultado").value="ERROR en petición "+peticion_http.status;
+                
+				}
+			}
+		}
+		 
+		
+	
+	</script>
+</head>
+
+<body>
+<div id="titulo"> <h1> EJEMPLO JQUERY Y AJAX</h1> </div>
+<br />
+
+<form id="form1" name="form1" method="post" action="">
+<div id="formulario">
+  <p>Valor 1: 		
+	<input type="text" name="valor1" id="valor1" class="valor" />
+		</p>
+  <p>Valor 2: 		
+	<input type="text" name="valor2" id="valor2" class="valor" />
+		<input type="button" name="operar" id="operar" value="Aceptar" onclick="calcular()"/>
+  </p>
+		<p>Resultado: 
+		<input type="text" name="resultado" id="resultado" class="resultado" />
+        </p>
+		
+ </div>
+</form>
+
+</body>
+</html>

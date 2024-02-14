@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>EXAMEN EJERCICIO 1</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .clasePremio { color: red; }
+    </style>
+    <script type="text/JavaScript">
+        var cont = 0;
+        var imagenes = ["Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard", "Squirtle", "Wartortle", "Blastoise"];
+        var saldo = 10;
+        var gastado = 0;
+        var ganado = 0;
+        var tabla;
+
+        texto = ["Jugada: 2eur", "2 iguales: 5eur premio", "3 iguales: 10eur premio"];
+
+        function cambpalab() {
+            document.getElementById("idspan").innerHTML = texto[cont];
+            cont += 1;
+            if (cont == 3) {
+                cont = 0;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            intervalo = setInterval(cambpalab, 1000);
+            tabla = document.getElementById("tabla");
+        });
+
+        function clasePremio(e) {
+            var clonimagenes = new Array(9).fill(0);
+
+            for (var i = 0; i < e.cells.length; i++) {
+                var imgSrc = e.cells[i].querySelector("img").src;
+                var pokemon = imgSrc.substring(imgSrc.lastIndexOf("/") + 1, imgSrc.lastIndexOf("."));
+                clonimagenes[imagenes.indexOf(pokemon)] += 1;
+            }
+
+            var premioEncontrado = false;
+
+            for (var f = 0; f < clonimagenes.length; f++) {
+                if (clonimagenes[f] >= 2) {
+                    premioEncontrado = true;
+                    var cell = e.insertCell();
+                    cell.innerHTML = "<td class='clasePremio'>PREMIO 5 euro!</td>";
+                    ganado += 5;
+                    break;
+                } else if (clonimagenes[f] >= 3) {
+                    premioEncontrado = true;
+                    var cell = e.insertCell();
+                    cell.innerHTML = "<td class='clasePremio'>PREMIO 10 euro!</td>";
+                    ganado += 10;
+                    break;
+                }
+            }
+
+            if (!premioEncontrado) {
+                var cell = e.insertCell();
+                cell.innerHTML = "<td>NO HAY PREMIO.</td>";
+            }
+
+            // Desactiva el clic después de encontrar el premio
+            e.onclick = null;
+        }
+
+        function jugar() {
+            if (saldo == 0) {
+                alert("No se puede jugar");
+            } else {
+                saldo -= 2;
+                gastado += 2;
+                var pks = [];
+                for (var i = 0; i < 3; i++) {
+                    pks.push(imagenes[Math.floor(Math.random() * 9)]);
+                }
+                var row = tabla.insertRow();
+                row.onclick = function () { clasePremio(this); };
+                for (var i = 0; i < pks.length; i++) {
+                    var cell = row.insertCell(i);
+                    cell.innerHTML = "<img src='" + "pokemon/" + pks[i] + ".png'>";
+                }
+            }
+        }
+
+        function borrarSinPremio() {
+            var filas = tabla.getElementsByTagName("tr");
+
+            // Iterar desde el final hacia el principio para evitar problemas al eliminar elementos durante la iteración
+            for (var i = filas.length - 1; i >= 0; i--) {
+                var celdas = filas[i].getElementsByTagName("td");
+
+                // Verificar si hay premio en la última celda
+                if (celdas.length > 0 && !celdas[celdas.length - 1].classList.contains("clasePremio")) {
+                    tabla.deleteRow(i);
+                }
+            }
+        }
+
+
+        function mostrarGanancias() {
+            var ventanaGanancias = window.open("", "_blank", "width=400, height=200");
+            ventanaGanancias.document.write("<h2>Ganancias</h2>");
+            ventanaGanancias.document.write("<p>Saldo Actual: " + saldo + "€</p>");
+            ventanaGanancias.document.write("<p>Lo Gastado: " + gastado + "€</p>");
+            ventanaGanancias.document.write("<p>Lo Ganado: " + ganado + "€</p>");
+        }
+
+        function abrirVentanaWeb() {
+            var ancho = prompt("Ingrese el ancho (deje en blanco para valor predeterminado):") || 800;
+            var alto = prompt("Ingrese el alto (deje en blanco para valor predeterminado):") || 600;
+            var posX = prompt("Ingrese la posición X (deje en blanco para valor predeterminado):") || 100;
+            var posY = prompt("Ingrese la posición Y (deje en blanco para valor predeterminado):") || 100;
+
+            var caracteristicas = "width=" + ancho + ",height=" + alto + ",left=" + posX + ",top=" + posY;
+            var ventanaWeb = window.open("http://www.pokemongo.com/es-es/", "_blank", caracteristicas);
+        }
+    </script>
+</head>
+
+<body onload="cargar()">
+    <div>
+        <p> JUGANDO A POKEMON &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id='idspan'></span></p>
+        <input type="button" value="JUGAR" onclick="jugar()">
+        <input type="button" value="BORRAR SIN PREMIO" onclick="borrarSinPremio()">
+        <input type="button" value="http://www.pokemongo.com/es-es/" onclick="abrirVentanaWeb()">
+        <input type="button" value="GANANCIAS" onclick="mostrarGanancias()">
+        <br>
+        <table id="tabla"></table>
+    </div>
+</body>
+
+</html>

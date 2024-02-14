@@ -1,0 +1,44 @@
+<ion-header>
+  <app-header></app-header>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-input placeholder="Introduce un número." type="number" [(ngModel)]="input"></ion-input>
+
+  <ng-container *ngIf="correcto; else elseBlock">
+    <ion-button (click)="reset()" color="primary" expand="full" class="ion-margin-top">RESET</ion-button>
+  </ng-container>
+
+  <ng-template #elseBlock>
+    <ion-button (click)="SacarMensaje()" color="primary" expand="full" class="ion-margin-top">CLICK ME</ion-button>
+  </ng-template>
+
+  <ion-text class="ion-margin-top">El número es {{mensaje}}</ion-text>
+</ion-content>
+
+<ion-content class="ion-padding">
+  <ion-text>Tienes {{contador}} intentos.</ion-text>
+
+  <ion-card *ngIf="contador === 0; else elseWok" class="ion-margin-top">
+    <ion-card-header>
+      Ostia que malooooo!!!!
+    </ion-card-header>
+    <ion-card-content>
+      No has dado ni una.
+      El numero era {{random}}
+    </ion-card-content>
+  </ion-card>
+
+  <ng-template #elseWok>
+    <ion-card *ngIf="correcto" class="ion-margin-top">
+      <ion-card-header>
+        ¡¡¡Enhorabuena!!!
+      </ion-card-header>
+      <ion-card-content>
+        Has acertado el numero secreto.
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
+</ion-content>
+
+<app-footer></app-footer>

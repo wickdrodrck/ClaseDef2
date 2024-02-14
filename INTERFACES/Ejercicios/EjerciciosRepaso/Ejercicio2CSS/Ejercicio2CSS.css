@@ -1,0 +1,154 @@
+
+@font-face {
+    font-family: 'Traveling_Typewriter'; /* Puedes darle el nombre que quieras */
+    src: url('img/TravelingTypewriter.ttf') format('truetype');
+    /* Asegúrate de proporcionar la ruta correcta al archivo .ttf */
+}
+
+html{
+    background-color: #222;
+}
+
+.TodaPag{
+    width: 60%;
+    margin: 0 auto;
+    font-family: Traveling_Typewriter;
+    font-size: 18px;
+}
+
+.encabezado{
+    color: #EEE;
+    font-size: 60px;
+    background-color: #222;
+    height: 120px;
+    position: relative;
+    display: flex;
+    justify-content: space-between; /* Añadido para separar la imagen y el texto */
+    align-items: center; /* Para centrar verticalmente el contenido */
+}
+
+.encabezado img{
+    margin-top: 25px;
+    margin-right: 40px;
+    padding: 5px;
+    position: relative;
+    box-shadow: 0 0 15px #FFF;
+    animation-name: logo;
+    animation-duration: 6s;
+    animation-iteration-count: 3;
+}
+
+@keyframes logo {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.encabezado label{
+    margin-top: 25px;
+    margin-left: 40px;
+}
+
+.menu{
+    height: 60px;
+    background-color: #222;
+    padding-top: 15px;
+    display: flex;
+    font-size: 22px;
+    color: #222;
+}
+
+.menu a{
+    width: 25%;
+    background-color: #C00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+.menu a:hover{
+    color: #EEE;
+    background-color: #222;
+}
+
+.Central{
+    background-color: #CCC;
+    height: 400px;
+    display: flex;
+    position: relative;
+    background: radial-gradient(at top left, #222, #FFF);
+}
+
+.textt{
+    color: #222;
+    background-color: #EEE;
+    justify-content: center;
+    width: 50%;
+    height: 360px;
+    padding: 20px;
+    margin: 15px;
+    position: relative;
+    box-sizing: border-box;
+    border: 1px #EEE;
+    border-radius: 10px;
+}
+
+.imgg{
+    width: 40%;
+    height: 360px;
+    padding: 20px;
+    margin: 15px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #222;
+    box-sizing: border-box;
+    border: 1px #222;
+    border-radius: 10px;
+
+}
+
+
+.imgg img{
+    width: 90%;
+    height: 90%;
+    margin: 5%;
+    box-shadow: 0 0 15px #FFF;
+    
+}
+
+.imgg img:hover{
+    animation-name: imgg;
+    animation-duration: 4s;
+}
+
+@keyframes imgg {
+    from{
+
+    }
+    to{
+        box-shadow: 0 0 15px #CC0000;
+        border-radius: 20px;
+        transform: scale(1.2);
+        filter: saturate(0);
+    }
+}
+
+.imgg img:hover{
+    filter: sepia(0.5);
+}
+
+.pie{
+    height: 60px;
+    width: 100%;
+    padding-top: 15px;
+    /*background-color: #222;*/
+    color: #EEE;
+    background-color: rgba(0, 0, 0,0.9);
+    text-align: center;
+}

@@ -1,0 +1,21 @@
+<h1>Hola Mundo</h1>
+<p>Autor: {{nombre}}</p>
+<hr>
+<!-- Input de texto con binding normal-->
+<h3>Edad:</h3>
+<input type="text" [(ngModel)] = "edad" >
+<br><br>
+<h3>Curso</h3>
+<!--Así se hace un binding doble para el input de texto-->
+<input type ="text" [(ngModel)]='curso'>
+<br><br>
+
+<button (click)="VerDatos()">Resumen</button>
+<hr>
+<h2>Tus Datos:</h2>
+{{resumen}}
+<hr>
+<h2>Tus Datos tiempo real</h2>
+<p>Nombre : {{nombre}}</p>
+<p>Edad: {{edad}}</p>
+<p>Curso: {{curso}}</p>

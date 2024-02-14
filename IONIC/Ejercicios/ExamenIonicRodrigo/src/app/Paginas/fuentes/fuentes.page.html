@@ -1,0 +1,30 @@
+<app-header [inicio]="fuenti"></app-header>
+
+<ion-content>
+
+  <ion-grid fixed>
+
+      <ion-row>
+          <ion-col size="12" >
+
+              <ion-card *ngFor="let i of Noticias">
+                  <ion-card-header >
+                      <ion-card-subtitle>{{i.categoria}}</ion-card-subtitle>
+                      <ion-card-title>{{i.nombre}} </ion-card-title>
+
+                  </ion-card-header>
+
+
+
+                  <ion-card-content>
+                      <p>{{i.descripcion}}</p>
+                      <p>{{i.url}}</p>
+                  </ion-card-content>
+              </ion-card>
+          </ion-col>
+      </ion-row>
+
+  </ion-grid>
+
+
+</ion-content>

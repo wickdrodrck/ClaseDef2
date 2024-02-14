@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>jQuery Drop Down Menu</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+</script>
+<link rel="stylesheet" href="stilos 01.css" type="text/css" />  
+</head>
+<style>
+	body{
+		text-decoration: underline;
+	}
+</style>
+<script>
+	$(document).ready(function() {
+		$('#item1').fadeIn(1000); // Mostrar el item "Inicio" durante 1 segundo (1000 milisegundos)
+		$('#item2').delay(1000).fadeIn(1000); // Mostrar el item "Tutoriales" después de 1 segundo y durante 1 segundo
+		$('#item3').delay(2000).fadeIn(1000); // Mostrar el item "Ejemplos" después de 2 segundos y durante 1 segundo
+		$('a').hover(
+			function(){
+				$(this).css({'text-decoration':'underline', 'background-color':'#838382'})
+			},
+			function(){
+				$(this).css({'text-decoration':'none', 'background-color':'#333333'})
+			}
+		)
+});
+</script>
+<body>
+
+	<div id="menu">
+<ul>
+	<li><a id="item1" style="display: none;" href="#">Inicio</a></li>
+	<li><a id="item2" style="display: none;" href="#">Tutoriales</a></li>
+	<li><a id="item3" style="display: none;" href="#">Ejemplos</a></li>
+</ul>
+</div>
+
+</body>
+</html>

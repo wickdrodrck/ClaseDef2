@@ -1,0 +1,25 @@
+<html>
+    <head></head>
+    <script>
+        function Ejercicio3(){
+            let exprRegu = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+        var cad = prompt("Introduce fecha en formato (dd/mm/yyyy): ");
+        if (exprRegu.test(cad)){
+            
+        let fcump = new Date(cad);
+        let años = (new Date() - fcump) / (1000*60*60*24*365);
+        let DiaSeman = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
+
+        alert("Tu edad: "+Math.floor(años)+" y el dia semanal de tu cumple: "+DiaSeman[fcump.getDay()]);
+        } else {
+            alert("Fecha Mal")
+        }
+        }
+        
+
+        
+    </script>
+    <body>
+        <input type="button" value="Dale don dale" onclick="Ejercicio3()">
+    </body>
+</html>

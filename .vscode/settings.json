@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./PYTHON/Django/Ejercicios/Ejercicio6/Ejercicio6/modelos",
+        "./PYTHON/Django/Ejercicios/Ejercicio6/asignaturas/modelos"
+    ]
+}

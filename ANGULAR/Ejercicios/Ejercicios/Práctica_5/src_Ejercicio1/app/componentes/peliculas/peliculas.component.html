@@ -1,0 +1,9 @@
+<h1><b>Lista de Peliculas:</b></h1>
+<div class="Pelis">
+    <div class="peliculacss" *ngFor="let peli of lPeliculas;">
+        <img src="assets/img/pelicul/{{peli.caratula}}">
+        <p><a routerLink="/Peliculas/{{peli.id}}"><b>Titulo : </b> {{peli.titulo}}</a></p>
+
+        
+    </div>
+</div>

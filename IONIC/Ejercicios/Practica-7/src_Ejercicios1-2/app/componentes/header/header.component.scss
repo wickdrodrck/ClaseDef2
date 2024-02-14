@@ -1,0 +1,14 @@
+ion-header {
+  --ion-background-color: #000000;  /* Set the background color to black */
+  --ion-color-base: #ffffff;  /* Set the text color to white */
+}
+
+ion-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ion-title {
+  --ion-color-base: #ffffff;  /* Set the text color to white */
+}

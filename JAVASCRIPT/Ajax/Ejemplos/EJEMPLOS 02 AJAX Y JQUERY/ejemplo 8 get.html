@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Untitled Document</title>
+	<style type="text/css">
+			input {
+				font-family: Verdana, Geneva, sans-serif;
+				
+			}
+			.valor {
+				margin-left: 35px;
+			}
+			input {
+				font-family: Verdana, Geneva, sans-serif;
+			}
+			.resultado {
+				background-color: #999;
+				margin-left: 10px;
+			}
+			#form1 p #operar {
+				margin-left: 25px;
+			}
+			div {
+				width: 400px;
+				margin-right: auto;
+				margin-left: auto;
+				font-family: Verdana, Geneva, sans-serif;
+			}
+			#formulario {
+				border: 2px outset #333;
+				padding-left: 25px;
+				margin-top: 50px;
+				font-weight: bold;
+			}
+			#titulo {
+				text-align: center;
+			}
+			body {
+				background-color: #CCC;
+			}
+	</style>
+	<script src="jquery-3.7.1.min.js"> </script>
+
+	
+	<script>
+		$(document).ready( function(){
+			$("#operar").click( realizarProceso);
+			var parametros;
+			function realizarProceso(){
+			
+			datos="caja1="+$("#valor1").val()+"&caja2="+$("#valor2").val();
+			$.get('ajaxproceso 2.php',datos,gestionarRespuesta);
+			
+			
+			 return false;
+		};
+		
+		});
+		function gestionarRespuesta(datosRecibidos){
+				$("#resultado").val(datosRecibidos);
+			}
+	
+	</script>
+</head>
+
+<body>
+<div id="titulo"> <h1> EJEMPLO JQUERY Y AJAX</h1> </div>
+<br />
+
+<form id="form1" name="form1" method="post" action="">
+<div id="formulario">
+  <p>Valor 1: 		
+	<input type="text" name="valor1" id="valor1" class="valor" />
+		</p>
+  <p>Valor 2: 		
+	<input type="text" name="valor2" id="valor2" class="valor" />
+		<input type="submit" name="operar" id="operar" value="Aceptar" />
+  </p>
+		<p>Resultado: 
+		<input type="text" name="resultado" id="resultado" class="resultado" />
+        </p>
+		
+ </div>
+</form>
+
+</body>
+</html>

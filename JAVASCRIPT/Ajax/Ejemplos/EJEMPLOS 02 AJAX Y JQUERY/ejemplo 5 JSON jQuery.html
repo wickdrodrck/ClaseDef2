@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/
+xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> </title>
+		 
+		<script src="jquery-3.7.1.min.js"> </script>
+	
+	<script>
+		$(document).ready( function(){
+			$("#cargar").click( realizarProceso);
+			var parametros;
+			function realizarProceso(){
+				 			
+			$.ajax( {
+				
+					url: 'enlaces.json',
+					type: 'get',
+					dataType:'json',
+					success: function (request){
+						var arr = request;
+						var out = "";
+						var i;
+						for(i = 0; i < arr.length; i++) {
+								out += '<a href="' + arr[i].url + '">' + arr[i].display + '</a><br>';
+						}
+						document.getElementById("demo").innerHTML = out; 
+											
+						}
+		
+			});
+		
+		};
+		
+		});
+		
+	
+	</script>
+</head>
+<body>
+<div id="titulo"> <h1> EJEMPLO JSON, AJAX, JQUERY</h1> </div>
+<input type="button" value="Cargar Enlaces" id="cargar">
+<div id="demo"></div>
+</body>
+</html>

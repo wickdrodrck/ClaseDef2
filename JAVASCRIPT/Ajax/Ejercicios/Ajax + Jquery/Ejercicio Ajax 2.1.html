@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio Ajax 2.1</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script> 
+        <script type="text/javascript">
+            function cargaColores() {
+                // Cargar colores del archivo JSON
+                $.getJSON('colores.json', function(colores) {
+                    $.each(colores, function(indice, color) {
+                        $('#colores').append('<option value="' + color.valorHexadec + '">' + color.nombreColor + '</option>');
+                    });
+
+                    // Establecer el color inicial del div
+                    $('#id1').css('background-color', colores[0].valorHexadec);
+                });
+            }
+			$(document).ready( function() {
+
+				$('#colores').change(function() {
+					
+					var colorSeleccionado = $(this).val();
+					console.log(colorSeleccionado)
+					$('#id1').css('background-color', colorSeleccionado);
+				});
+			});
+        </script>
+    </head>
+    <body onload="cargaColores()">
+        <div id="id1">
+            <select id="colores">
+            </select>
+        </div>
+    </body>
+</html>

@@ -8,12 +8,50 @@ xhtml1/DTD/xhtml1-transitional.dtd">
 </head>
 
 <script type="text/javascript">
-var arr;		 
+var arr;
+var out = "";
+var out2 = "";
 function descargaArchivo() {
+		// Obtener la instancia del objeto XMLHttpRequest		
+				peticion_http = new XMLHttpRequest();	
+		// Preparar la funcion de respuesta
+				peticion_http.onreadystatechange = muestraContenido;
+		// Realizar peticion HTTP
+				peticion_http.open('GET', 'empleados.json', true);
+				peticion_http.send(null);
+			function muestraContenido() {
+				if(peticion_http.readyState == 4) {
+					if(peticion_http.status == 200) {
+						arr = JSON.parse(peticion_http.responseText);
+						
+						var i;
+						for(i = 0; i < arr.length; i++) {
+						
+								out += '<li>'+arr[i].nombre+" "+arr[i].apellido+" : "+arr[i].departamento+" | "+arr[i].salario+'</li>';
+								out2 += '<li>'+arr[i].nombre+" "+arr[i].apellido+" : "+arr[i].departamento+'</li>';
+						}
+						
+		
+			 
+					}
+				}
+			}
 		}
-function cargarDatos(){
- 
-}
+
+	function cargarDatos(){
+		
+		obji = document.getElementById("sel1");
+		indicesel = obji.selectedIndex;
+		objetoselec = obji.options[indicesel]
+		console.log(objetoselec)
+		if(objetoselec.value == 1){
+			document.getElementById("ul1").innerHTML = out2;
+		}else if(objetoselec.value == 2){
+			document.getElementById("ul1").innerHTML = out
+		}else{
+			document.getElementById("ul1").innerHTML = ""
+		}
+	}
 				
 </script>
 </head>

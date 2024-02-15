@@ -1,0 +1,25 @@
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>Identificador</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for equipo in equipos %}
+            <tr>
+                <td>{{ equipo.Identificador }}</td>
+                <td>{{ equipo.nombre }}</td>
+                <td>
+                    <a href="{% url 'detalle_equipo' equipo.Identificador %}">Ver Detalles</a>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a  href="{% url 'editarpartido' %}"> Jugar Partido </a>
+{% endblock %}

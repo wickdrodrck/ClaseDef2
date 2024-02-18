@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio1P11</title>
+    <title>Document</title>
 </head>
 <body>
+    <h1>Bienvenido {{user}}</h1>
     <form method="POST" class="centralita">
         {% csrf_token %}
         {% for field in form %}
@@ -16,9 +17,15 @@
         <br>
         {% endfor %}
         <button type="submit">Enviar</button>
+    
+    {% for x in bbdd %}
+        <p>x.usuario</p>
+        <ul>
+            <li>Ciudad: {{x.ciudad}}</li>
+            <li>Email: {{x.email}}</li>
+            <li>Telfn: {{x.telefono}}</li>
+        </ul>
+    {% endfor %}
     </form>
-        {% if mensaje %}
-            <ul><li>{{mensaje}}</li></ul>
-        {% endif %}
 </body>
 </html>

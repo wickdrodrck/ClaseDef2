@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio1P11</title>
+    <title>Logueo bbdd</title>
 </head>
 <body>
     <form method="POST" class="centralita">
@@ -17,8 +17,8 @@
         {% endfor %}
         <button type="submit">Enviar</button>
     </form>
-        {% if mensaje %}
-            <ul><li>{{mensaje}}</li></ul>
-        {% endif %}
+    {% if mensaje %}
+        <ul><li>{{ mensaje }}</li></ul>
+    {% endif %}
 </body>
 </html>

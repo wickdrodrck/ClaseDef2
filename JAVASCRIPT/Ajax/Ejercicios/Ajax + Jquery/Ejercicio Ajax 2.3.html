@@ -1,39 +1,71 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/
-xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-	<head>
-		<meta charset="UTF-8">
-		 <title>EJERCICIO 3 EXAMEN JUNIO JQUERY 2018</title>
-		 
-<style>
-		 table{
-			background-color: #EFF2FB;
-			text-align:center;
-			width:900px;
-			border: 1px solid #D0A9F5;
-			font-family: 'Cherry Swash', cursive;
-		}
-		
- 
-		
-		td{
-			border: 1px solid #D0A9F5;
-		}	
-</style>
+<head>
+    <meta charset="UTF-8">
+    <title>EJERCICIO 3 EXAMEN JUNIO JQUERY 2018</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+    <style>
+        table {
+            background-color: #EFF2FB;
+            text-align: center;
+            width: 900px;
+            border: 1px solid #D0A9F5;
+            font-family: 'Cherry Swash', cursive;
+        }
+        td {
+            border: 1px solid #D0A9F5;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $('#sel1').change(function() {
+                cargarDatos($(this).val());
+            });
+        });
 
-	
+        function cargarDatos(valo) {
+            $.ajax({
+                url: 'empleados.json',
+                dataType: 'json',
+                success: function(data) {
+                    mostrardepas(data, valo);
+                },
+                error: function() {
+                    alert('Error al cargar los empleados.');
+                }
+            });
+        }
+
+        function mostrardepas(datos, valo) {
+            $('#tabla').empty(); // Limpiar la tabla antes de agregar nuevas filas
+            $.each(datos, function(index, dato) {
+                if (valo === '1' || dato.departamento === valo) {
+                    var fila = $('<tr>');
+                    fila.append($('<td>').text(dato.departamento), $('<td>').text(dato.nombre), $('<td>').text(dato.apellido), $('<td>').text(dato.salario));
+                    $('#tabla').append(fila);
+                }
+            });
+        }
+    </script>
 </head>
 <body>
-<div id="titulo"> <h1> EMPLEADOS</h1> </div>
-<select id="sel1" onchange="cargarDatos()">
-<option value="0">Selecciona</option>
-<option value="1">Todos</option>
-<option value="CONTABILIDAD">CONTABILIDAD</option>
-<option value="MARKETING">MARKETING</option>
-</select>
-<br><br>
-<table id="tabla">
- <tr><td> DEPARTAMENTO </td><td> NOMBRE </td><td> APELLIDO </td><td> SALARIO </td></tr>
-</table>
+    <div id="titulo">
+        <h1>EMPLEADOS</h1>
+    </div>
+    <select id="sel1">
+        <option value="0">Selecciona</option>
+        <option value="1">Todos</option>
+        <option value="CONTABILIDAD">CONTABILIDAD</option>
+        <option value="MARKETING">MARKETING</option>
+    </select>
+    <br><br>
+    <table id="tabla">
+        <tr>
+            <td>DEPARTAMENTO</td>
+            <td>NOMBRE</td>
+            <td>APELLIDO</td>
+            <td>SALARIO</td>
+        </tr>
+    </table>
 </body>
 </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bloque1,
+        .bloque2 {
+            display: inline-block;
+            vertical-align: top; /* Alineación vertical superior */
+            margin-right: 20px; /* Espacio entre los bloques */
+        }
+        .centralita div {
+            margin-bottom: 10px; /* Espacio entre los campos del formulario */
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenido {{user}}</h1>
+    <div class="bloque1">
+        <form method="POST" class="centralita">
+            {% csrf_token %}
+            {% for field in form %}
+            <div>
+                <label for="{{ field.id_for_label }}">{{ field.label }}:</label><br>
+                {{ field }}
+            </div>
+            {% endfor %}
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <div class="bloque2">
+        {% for x in bbdd %}
+        <p>{{x.nombrecliente}}</p>
+        <ul>
+            <li>Ciudad: {{x.ciudad}}</li>
+            <li>Email: {{x.email}}</li>
+            <li>Telfn: {{x.telefono}}</li>
+        </ul>
+        {% endfor %}
+    </div>
+</body>
+</html>

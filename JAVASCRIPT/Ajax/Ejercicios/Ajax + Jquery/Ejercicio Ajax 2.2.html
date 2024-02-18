@@ -9,7 +9,40 @@ xhtml1/DTD/xhtml1-transitional.dtd">
 
 	
 	<script>
-		
+		$(document).ready(function() {
+			$('#cargar').click(function() {
+				$.ajax({
+					url: 'deportes.json',
+					dataType: 'json',
+					success: function(data) {
+						mostrarDeportes(data);
+					},
+					error: function() {
+						alert('Error al cargar los deportes.');
+					}
+				});
+			});
+
+		function mostrarDeportes(deportes) {
+			var listaDeportes = $('ul');
+			listaDeportes.empty(); // Limpiar la lista antes de añadir nuevos elementos
+
+			$.each(deportes, function(index, deporte) {
+				var li = $('<li>').text(deporte.deporte);
+				var divDescripcion = $('<div>').text(deporte.desc).hide(); // Ocultar el div inicialmente
+
+				li.click(function() {
+					divDescripcion.toggle(); // Mostrar u ocultar la descripción al hacer clic en el deporte
+				});
+
+				listaDeportes.append(li);
+				listaDeportes.append(divDescripcion);
+			});
+
+			$('$demo').append(listaDeportes)
+		}
+});
+
 	</script>
 </head>
 <body>

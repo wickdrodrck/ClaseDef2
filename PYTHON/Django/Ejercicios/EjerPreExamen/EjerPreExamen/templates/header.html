@@ -1,0 +1,47 @@
+<style>
+    /* Estilos CSS para el header */
+    .header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .nav-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    .nav-list-item {
+        margin-right: 20px;
+    }
+
+    .nav-link {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+        color: #ffd700; /* Cambia de color al pasar el mouse */
+    }
+</style>
+
+<div class="header">
+    <h1>{% block header_title %}Encabezado Genérico{% endblock %}</h1>
+    <nav>
+        <ul class="nav-list">
+            <li class="nav-list-item"><a class="nav-link" href="{% url 'Inicio' %}">Inicio</a></li>
+            <li class="nav-list-item"><a class="nav-link" href="{% url 'tarea' %}">Tareas</a></li>
+            <li class="nav-list-item"><a class="nav-link" href="{% url 'perfil' %}">Perfil</a></li>
+            <li class="nav-list-item"><a class="nav-link" href="{% url 'cerrar_sesion' %}">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+</div>

@@ -6,9 +6,6 @@ from crudbbdd.forms import FrmLogin, AñadirAlumnos
 # Create your views here.
 
 def Login(request):
-    print(
-        "hola"
-    )
     if(request.method == 'POST'):
         form = FrmLogin(request.POST)
         if(form.is_valid()):

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container1 {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+    }
+
+    .heading {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .profile-info {
+        margin-bottom: 20px;
+    }
+
+    .profile-info-label {
+        font-weight: bold;
+    }
+
+    .profile-info p {
+        margin: 0;
+    }
+</style>
+<div class="container1">
+    <h1 class="heading">Perfil de Usuario</h1>
+    <div class="profile-info">
+        <label class="profile-info-label">Usuario:</label>
+        <p>{{ usuario.usuario }}</p>
+    </div>
+    <div class="profile-info">
+        <label class="profile-info-label">Contraseña:</label>
+        <p>{{ usuario.contraseña }}</p>
+    </div>
+    <div class="profile-info">
+        <label class="profile-info-label">Perfil:</label>
+        <p>{{ usuario.perfil }}</p>
+    </div>
+</div>
+{% endblock %}

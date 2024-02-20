@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        /* styles.css */
+
+        .main-content {
+            max-width: 800px; /* ajusta el ancho máximo según sea necesario */
+            margin: 20px auto; /* centrar el bloque principal */
+            padding: 20px; /* agregar espacio alrededor del contenido */
+            background-color: #f9f9f9; /* color de fondo para el contenido */
+            border-radius: 5px; /* bordes redondeados para un aspecto más agradable */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* sombra suave para resaltar el contenido */
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        {% include 'header.html' %}
+    </header>
+
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
+</body>
+</html>

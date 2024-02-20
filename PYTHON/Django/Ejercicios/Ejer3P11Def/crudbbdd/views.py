@@ -16,6 +16,7 @@ def Login(request):
             usuario = ComprobarPerfil(datos)
             if(usuario == None):
                 mensaje = "Usuario no encontrado"
+                
             else:
                 if(usuario.perfil == "administrador"):
                     return redirect('adminview', user=usuario.usuario) 

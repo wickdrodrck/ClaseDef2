@@ -11,10 +11,12 @@ def Login(request):
         if(form.is_valid()):
             datos = form.cleaned_data
             usuario = ComprobarPerfil(datos)
+            
             if(usuario == None):
                 mensaje = "Usuario no encontrado"
                 
             else:
+                request.session['username'] = usuario.usuario
                 if(usuario.perfil == "administrador"):
                     return redirect('adminview', user=usuario.usuario) 
                 elif(usuario.perfil == "normal"):
@@ -34,8 +36,12 @@ def ComprobarPerfil(datos):
             return usuario
         except Usuarios.DoesNotExist:
             return None
+            
         
 def Vistadmin(request, user):
+    usuarioS = Usuarios.objects.get(usuario=request.session.get('username'))
+    if (usuarioS.perfil != "administrador"):
+        return redirect('inicio')
     if(request.method == 'POST'):
         form = AñadirAlumnos(request.POST)
 
@@ -55,4 +61,7 @@ def Vistadmin(request, user):
     return render(request, 'VistaAdmin.html', {'form':form, 'mensaje':mensaje, 'bbdd':DatosUsuarios.objects.all, 'user':user})
     
 def Vistanormal(request, user):
+    usuarioS = Usuarios.objects.get(usuario=request.session.get('username'))
+    if (usuarioS.perfil == "administrador"):
+        return redirect('inicio')
     return render(request, 'VistaNormal.html', {'bbdd':DatosUsuarios.objects.all, 'user':user})

@@ -1,0 +1,28 @@
+{% extends base.html %}
+
+{% block contenido %}
+<h1>Bienvenido {{user}}</h1>
+    <div class="bloque1">
+        <form method="POST" class="centralita">
+            {% csrf_token %}
+            {% for field in form %}
+            <div>
+                <label for="{{ field.id_for_label }}">{{ field.label }}:</label><br>
+                {{ field }}
+            </div>
+            {% endfor %}
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <div class="bloque2">
+        {% for x in bbdd %}
+        <p>{{x.nombrecliente}}</p>
+        <ul>
+            <li>Ciudad: {{x.ciudad}}</li>
+            <li>Email: {{x.email}}</li>
+            <li>Telfn: {{x.telefono}}</li>
+        </ul>
+        <button><a href="{% url 'eliminar' nmbr=x.nombrecliente %}">Eliminar</a></button>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -19,7 +19,7 @@ from django.urls import path
 from crudbbdd.views import Login, Vistadmin, Vistanormal
 
 urlpatterns = [
-    path('', Login),
+    path('', Login, name='inicio'),
     path('admin/<str:user>/', Vistadmin,name='adminview'),
     path('normal/<str:user>/', Vistanormal ,name='normalview')
 ]

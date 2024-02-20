@@ -1,0 +1,9 @@
+<div class="header">
+    <h1>{% block header_title %}{% endblock %}</h1>
+    <nav>
+        <ul class="nav-list">
+            <li class="nav-list-item"><a class="nav-link" href="{% url 'usuarios' %}">Inicio</a></li>
+            <li class="nav-list-item"><a class="nav-link" href="{% url 'cerrar_sesion' %}">Tareas</a></li>
+        </ul>
+    </nav>
+</div>

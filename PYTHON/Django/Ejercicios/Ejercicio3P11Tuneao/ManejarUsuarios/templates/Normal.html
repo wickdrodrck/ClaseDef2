@@ -1,0 +1,12 @@
+{% extends base.html %}
+
+{% block contenido %}
+    {% for x in bbdd %}
+            <p>{{x.nombr}}</p>
+            <ul>
+                <li>Ciudad: {{x.ciudad}}</li>
+                <li>Email: {{x.email}}</li>
+                <li>Telfn: {{x.telefono}}</li>
+            </ul>
+    {% endfor %}
+ {% endblock %}       
